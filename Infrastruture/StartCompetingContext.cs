@@ -8,17 +8,17 @@ namespace Infrastruture
     {
         public StartCompetingContext() : base("name=StartCompetingContext")
         {
-
+            Database.SetInitializer<StartCompetingContext>(new DropCreateDatabaseIfModelChanges<StartCompetingContext>());
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Configurations.Add(new UserMap());
-            modelBuilder.Configurations.Add(new RaceMap());
-            modelBuilder.Configurations.Add(new UserRaceMap());
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Configurations.Add(new UserMap());
+        //    modelBuilder.Configurations.Add(new RaceMap());
+        //    //modelBuilder.Configurations.Add(new UserRaceMap());
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
         public DbSet<User> Users { get; set; }
         public DbSet<Race> Race { get; set; }

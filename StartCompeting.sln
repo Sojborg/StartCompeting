@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartCompeting.Administration", "StartCompeting.Administration\StartCompeting.Administration.csproj", "{67BC3351-9A51-48F8-B531-FC34F1C0B846}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastruture", "Infrastruture\Infrastruture.csproj", "{009A65BD-93C7-4F58-9DA2-5BC96DF221F6}"
@@ -16,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartCompeting.IntegrationTests", "StartCompeting.IntegrationTests\StartCompeting.IntegrationTests.csproj", "{DF082EE2-99F6-441F-A587-6DC5C16775C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartCompeting.Frontend.Web", "StartCompeting.Frontend.Web\StartCompeting.Frontend.Web.csproj", "{FC61C29B-6121-4D07-8235-74284FBA5693}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2BD05261-085F-4B71-A0A0-358CE74E2194}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

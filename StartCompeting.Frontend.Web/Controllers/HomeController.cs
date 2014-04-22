@@ -17,7 +17,7 @@ namespace StartCompeting.Frontend.Web.Controllers
         public ActionResult Index()
         {
             string msg = "";
-            var users = _userService.GetAllUsersByUserName("123");
+            var users = _userService.GetAllUsersByUserName("Jesper");
 
             foreach (var user in users)
             {

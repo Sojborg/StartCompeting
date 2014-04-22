@@ -31,7 +31,7 @@ namespace Infrastruture.Services
         public IEnumerable<User> GetAllUsersByUserName(string userName)
         {
             var users = _userRepository.GetAll()
-                .Where(x => x.Password == userName);
+                .Where(x => x.Username == userName);
             return users;
         }
 

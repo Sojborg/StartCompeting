@@ -8,7 +8,7 @@ namespace Infrastruture.Mapping
     {
         public UserMap ()
 	    {
-            ToTable("Users");
+            ToTable("User");
             HasKey(u => u.Id).Property(u => u.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(u => u.Username).IsRequired().HasMaxLength(10);
 	    }
