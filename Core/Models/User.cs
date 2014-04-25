@@ -7,6 +7,7 @@ namespace Core.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public virtual ICollection<Race> Races { get; set; }
+        public virtual ICollection<Workout> Workouts { get; set; }
 
         public User()
         {

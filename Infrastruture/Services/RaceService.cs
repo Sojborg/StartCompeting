@@ -16,6 +16,7 @@ namespace Infrastruture.Services
 
         public void CreateRace(Race race)
         {
+            race.CreatedDate = System.DateTime.Now;
             _raceRepository.Save(race);
         }
 

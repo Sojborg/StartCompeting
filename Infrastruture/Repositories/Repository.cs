@@ -30,7 +30,7 @@ namespace Infrastruture.Repositories
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _dbSet;
         }
 
         public void Save(TEntity entity)

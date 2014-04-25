@@ -49,18 +49,24 @@
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRaceRepository.cs" />
     <Compile Include="Interfaces\IRaceService.cs" />
+    <Compile Include="Interfaces\IRaceTypeService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Interfaces\IWorkoutService.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\RaceType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRace.cs" />
+    <Compile Include="Models\Workout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

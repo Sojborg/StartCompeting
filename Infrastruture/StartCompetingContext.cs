@@ -23,5 +23,6 @@ namespace Infrastruture
         public DbSet<User> Users { get; set; }
         public DbSet<Race> Race { get; set; }
         public DbSet<RaceType> RaceType { get; set; }
+        public DbSet<Workout> Workout { get; set; }
     }
 }

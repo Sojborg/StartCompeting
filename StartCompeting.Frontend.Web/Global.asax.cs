@@ -55,9 +55,12 @@ namespace StartCompeting.Frontend.Web
             kernel.Load(Assembly.GetExecutingAssembly());
             kernel.Bind<StartCompetingContext>().ToSelf().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IWorkoutService>().To<WorkoutService>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IRepository<Race>>().To<Repository<Race>>();
             kernel.Bind<IRepository<RaceType>>().To<Repository<RaceType>>();
+            kernel.Bind<IRepository<Workout>>().To<Repository<Workout>>();
+            kernel.Bind<IRaceTypeService>().To<RaceTypeService>();
             return kernel;
         }
     }
