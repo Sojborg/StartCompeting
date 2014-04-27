@@ -18,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2BD052
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartCompeting.Web.Api", "StartCompeting.Web.Api\StartCompeting.Web.Api.csproj", "{AD613166-93B4-4CCF-93A3-410CF48C568E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,10 +44,6 @@ Global
 		{FC61C29B-6121-4D07-8235-74284FBA5693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC61C29B-6121-4D07-8235-74284FBA5693}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC61C29B-6121-4D07-8235-74284FBA5693}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD613166-93B4-4CCF-93A3-410CF48C568E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD613166-93B4-4CCF-93A3-410CF48C568E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD613166-93B4-4CCF-93A3-410CF48C568E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD613166-93B4-4CCF-93A3-410CF48C568E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
