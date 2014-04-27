@@ -1,9 +1,13 @@
-﻿var app = angular.module('startCompetingApp', []);
+﻿var app = angular.module('startCompetingApp', ["ngQuickDate"]);
 
 app.controller('WorkoutController', function($scope, $http) {
 
     $http.get('GetRaceTypes').success(function(data) {
         $scope.raceTypes = data;
+    });
+
+    $http.get('/TestApi/Get').success(function (data) {
+        alert(data);
     });
 
 //    $scope.raceTypes = [

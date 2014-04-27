@@ -1,0 +1,15 @@
+﻿/* Workout 
+----------------------------------------------------------*/
+.workout-form-number-item {
+    width: 20%;
+}
+
+.workout-duration {
+    width: 30%;
+
+}
+
+    .workout-duration .workout-duration-item {
+        display: inline;
+    }
+

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StartCompeting.Frontend.Web.Controllers
+namespace StartCompeting.Frontend.Web.Models
 {
     public class RaceTypeViewModel
     {

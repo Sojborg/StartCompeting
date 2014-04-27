@@ -15,6 +15,7 @@ using Infrastruture.Repositories;
 using Infrastruture.Services;
 using Ninject;
 using Ninject.Web.Common;
+using StartCompeting.Frontend.Web.App_Start;
 
 namespace StartCompeting.Frontend.Web
 {
@@ -44,6 +45,7 @@ namespace StartCompeting.Frontend.Web
             //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             //RouteConfig.RegisterRoutes(RouteTable.Routes);
             //BundleConfig.RegisterBundles(BundleTable.Bundles);
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
             RegisterRoutes(RouteTable.Routes);
             //AuthConfig.RegisterAuth();
         }

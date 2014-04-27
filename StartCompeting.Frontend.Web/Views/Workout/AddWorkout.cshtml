@@ -2,21 +2,16 @@
     ViewBag.Title = "Add workout";
 }
 
-<h2>Add new workout</h2>
 <div></div>
 <div class="row">
     <div class="col-lg-12">
-        <h1>Forms <small>Enter Your Data</small></h1>
+        <h1>Workout <small>Enter new</small></h1>
         <ol class="breadcrumb">
             <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li class="active"><i class="fa fa-edit"></i> Forms</li>
+            <li class="active"><i class="fa fa-edit"></i> Workout</li>
         </ol>
-        <div class="alert alert-info alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Visit <a class="alert-link" target="_blank" href="http://getbootstrap.com/css/#forms">Bootstrap's Form Documentation</a> for more information.
-        </div>
     </div>
-</div><!-- /.row -->
+</div>
 
 <div class="row">
     <div class="col-lg-6">
@@ -24,8 +19,13 @@
         <form ng-controller="WorkoutController" ng-submit="submit()">
 
             <div class="form-group">
-                <label>Name</label>
+                <label>Description</label>
                 <input class="form-control" name="name" ng-model="formData.name">
+            </div>
+
+            <div class="form-group">
+                <label>Dato</label>
+                <quick-datepicker ng-model='formData.startDateTime' date-format='dd-MM-yyyy' placeholder="Pick a date" disable-timepicker="true"></quick-datepicker>
             </div>
 
             <div class="form-group">
@@ -35,22 +35,19 @@
 
             <div class="form-group">
                 <label>Race length (km)</label>
-                <input class="form-control" name="Length" ng-model="formData.Length">
+                <input class="form-control workout-form-number-item" name="Length" ng-model="formData.Length">
             </div>
 
-            <div class="form-group">
-                <label>Elapsed</label>
-                <label>Hours</label>
-                <input class="form-control" name="elapsedHours" ng-model="formData.elapsedHours">
-                <label>Minutes</label>
-                <input class="form-control" name="elapsedMinutes" ng-model="formData.elapsedMinutes">
-                <label>Seconds</label>
-                <input class="form-control" name="elapsedSeconds" ng-model="formData.elapsedSeconds">
+            <div class="form-group workout-duration">
+                <label>Duration</label>
+                <input class="form-control workout-form-number-item workout-duration-item" placeholder="HH" name="elapsedHours" ng-model="formData.elapsedHours" />                
+                <input class="form-control workout-form-number-item workout-duration-item" placeholder="MM" name="elapsedMinutes" ng-model="formData.elapsedMinutes" />                
+                <input class="form-control workout-form-number-item workout-duration-item" placeholder="SS" name="elapsedSeconds" ng-model="formData.elapsedSeconds" />
             </div>
 
             <div class="form-group">
                 <label>Avg speed (km/h)</label>
-                <input class="form-control" name="avgSpeed" ng-model="formData.avgSpeed">
+                <input class="form-control workout-form-number-item" name="avgSpeed" ng-model="formData.avgSpeed">
             </div>
 
             <div class="form-group">
@@ -58,10 +55,6 @@
             </div>
         </form>
     </div>
-    <pre>
-		{{ formData }}
-	</pre>
-</div><!-- /.row -->
-<!-- JavaScript -->
+</div>
 <script src="~/Scripts/jquery-1.8.2.js"></script>
 <script src="~/Scripts/bootstrap.js"></script>

@@ -19,7 +19,19 @@ namespace Infrastruture.Services
 
         public void CreateWorkout(Core.Models.Workout workout)
         {
+            workout.CreatedDateTime = DateTime.Now;
+            workout.EndDateTime = GetEndDateTime(workout);
+
             _workoutRepository.Save(workout);
+        }
+
+        private DateTime GetEndDateTime(Workout workout)
+        {
+            var endDateTime = workout.StartDateTime
+                .AddHours(workout.ElapsedHours)
+                .AddMinutes(workout.ElapsedMinutes)
+                .AddSeconds(workout.ElapsedSeconds);
+            return endDateTime;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Models;
+using StartCompeting.Frontend.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace StartCompeting.Frontend.Web.Controllers
             return Json(raceTypes, JsonRequestBehavior.AllowGet);
         }
 
-        private RaceTypeViewModel MapRaceType(RaceType raceType)
+        private RaceTypeViewModel MapRaceType(Core.Models.RaceType raceType)
         {
             var raceTypeViewModel = new RaceTypeViewModel();
             raceTypeViewModel.Id = raceType.Id;
