@@ -9,5 +9,7 @@ namespace Core.Interfaces
     public interface IWorkoutService
     {
         void CreateWorkout(Workout workout);
+
+        IEnumerable<Workout> GetAllUserWorkouts(int userId);
     }
 }

@@ -6,11 +6,15 @@ app.controller('WorkoutController', function($scope, $http) {
         $scope.raceTypes = data;
     });
 
+    $http.get('/api/Workout').success(function (data) {
+        $scope.workouts = data;
+    });
+
     $scope.formData = {
     };
 
     $scope.submit = function() {
-        $http.post('/api/RaceType', $scope.formData)
+        $http.post('/api/Workout', $scope.formData)
             .success(function(data) {
                 alert("saved");
             }

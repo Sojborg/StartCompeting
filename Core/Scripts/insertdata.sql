@@ -5,3 +5,5 @@ insert into RaceTypes (Name) VALUES ('Running')
 insert into RaceTypes (Name) VALUES ('Swimning')
 
 select * from RaceTypes
+
+select * from Workouts

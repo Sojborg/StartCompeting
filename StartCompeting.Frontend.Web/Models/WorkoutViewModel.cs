@@ -6,11 +6,12 @@ using System.Text;
 
 namespace StartCompeting.Frontend.Web.Models
 {
+    //[DataContract]
     public class WorkoutViewModel
     {
         public string Name { get; set; }
 
-        [Required]
+        //[DataMember(IsRequired = true)}
         public decimal Length { get; set; }
 
         public int ElapsedHours { get; set; }
@@ -19,10 +20,10 @@ namespace StartCompeting.Frontend.Web.Models
 
         public int ElapsedSeconds { get; set; }
 
-        [Required]
+        //[Required]
         public decimal AvgSpeed { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime StartDateTime { get; set; }
 
         public DateTime EndDateTime { get; set; }

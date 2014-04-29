@@ -54,6 +54,8 @@ namespace StartCompeting.Frontend.Web
         {
             Database.SetInitializer<StartCompetingContext>(null);
             var kernel = new StandardKernel();
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+
             kernel.Load(Assembly.GetExecutingAssembly());
             kernel.Bind<StartCompetingContext>().ToSelf().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>();

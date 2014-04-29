@@ -15,12 +15,18 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
     public class WorkoutController : ApiController
     {
         private readonly IWorkoutService _workoutService;
-        private readonly IRaceTypeService _raceTypeService;
+        private readonly IUserService _userService;
 
-        public WorkoutController(IWorkoutService workoutService, IRaceTypeService raceTypeService)
+        public WorkoutController(IWorkoutService workoutService, IUserService userService)
         {
             _workoutService = workoutService;
-            _raceTypeService = raceTypeService;
+            _userService = userService;
+        }
+
+        public IEnumerable<WorkoutViewModel> Get()
+        {
+            var workouts = _userService.GetUser(1).Workouts.Select(x => Map(x));
+            return workouts;
         }
 
         public HttpResponseMessage Post(WorkoutViewModel workoutViewModel)
@@ -30,6 +36,8 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    var user = _userService.GetUser(1);
+
                     var workoutEntity = new Workout();
                     workoutEntity.Name = workoutViewModel.Name;
                     workoutEntity.Length = workoutViewModel.Length;
@@ -39,6 +47,7 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
                     workoutEntity.ElapsedHours = workoutViewModel.ElapsedHours;
                     workoutEntity.ElapsedMinutes = workoutViewModel.ElapsedMinutes;
                     workoutEntity.ElapsedSeconds = workoutViewModel.ElapsedSeconds;
+                    workoutEntity.User = user;
 
                     _workoutService.CreateWorkout(workoutEntity);
 
@@ -53,6 +62,19 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
 	        {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
 	        }
+        }
+
+        private WorkoutViewModel Map(Workout entity)
+        {
+            var viewModel = new WorkoutViewModel();
+            viewModel.Name = entity.Name;
+            viewModel.Length = entity.Length;
+            viewModel.AvgSpeed = entity.AvgSpeed;
+            viewModel.StartDateTime = entity.StartDateTime;
+            viewModel.ElapsedHours = entity.ElapsedHours;
+            viewModel.ElapsedMinutes = entity.ElapsedMinutes;
+            viewModel.ElapsedSeconds = entity.ElapsedSeconds;
+            return viewModel;
         }
     }
 }

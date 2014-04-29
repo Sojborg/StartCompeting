@@ -13,10 +13,29 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" ng-controller="WorkoutController">
     <div class="col-lg-6">
 
-        <form ng-controller="WorkoutController" ng-submit="submit()">
+        <table class="table table-bordered table-hover tablesorter">
+            <thead>
+                <tr>
+                    <th class="header">Page <i class="fa fa-sort"></i></th>
+                    <th class="header">Visits <i class="fa fa-sort"></i></th>
+                    <th class="header">% New Visits <i class="fa fa-sort"></i></th>
+                    <th class="header">Revenue <i class="fa fa-sort"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="w in workouts">
+                    <td>{{w.StartDateTime}}</td>
+                    <td>{{w.Length}}</td>
+                    <td>{{w.AvgSpeed}}</td>
+                    <td>{{w.ElapsedMinutes}}:{{w.ElapsedSeconds}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form ng-submit="submit()">
 
             <div class="form-group">
                 <label>Description</label>
@@ -40,8 +59,8 @@
 
             <div class="form-group workout-duration">
                 <label>Duration</label>
-                <input class="form-control workout-form-number-item workout-duration-item" placeholder="HH" name="elapsedHours" ng-model="formData.elapsedHours" />                
-                <input class="form-control workout-form-number-item workout-duration-item" placeholder="MM" name="elapsedMinutes" ng-model="formData.elapsedMinutes" />                
+                <input class="form-control workout-form-number-item workout-duration-item" placeholder="HH" name="elapsedHours" ng-model="formData.elapsedHours" />
+                <input class="form-control workout-form-number-item workout-duration-item" placeholder="MM" name="elapsedMinutes" ng-model="formData.elapsedMinutes" />
                 <input class="form-control workout-form-number-item workout-duration-item" placeholder="SS" name="elapsedSeconds" ng-model="formData.elapsedSeconds" />
             </div>
 

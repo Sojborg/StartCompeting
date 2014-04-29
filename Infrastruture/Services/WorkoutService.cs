@@ -25,6 +25,12 @@ namespace Infrastruture.Services
             _workoutRepository.Save(workout);
         }
 
+        public IEnumerable<Workout> GetAllUserWorkouts(int userId)
+        {
+            var all = _workoutRepository.GetAll().ToList();
+            return all.Where(x => x.User.Id == userId);
+        }
+
         private DateTime GetEndDateTime(Workout workout)
         {
             var endDateTime = workout.StartDateTime
