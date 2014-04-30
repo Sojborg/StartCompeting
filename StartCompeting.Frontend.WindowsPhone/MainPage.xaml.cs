@@ -15,6 +15,7 @@ using Microsoft.Phone.Maps.Controls;
 using System.Windows.Media;
 using Windows.Devices.Geolocation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace StartCompeting.Frontend.WindowsPhone
 {
@@ -24,7 +25,10 @@ namespace StartCompeting.Frontend.WindowsPhone
         private MapPolyline _line;
         private DispatcherTimer _timer = new DispatcherTimer();
         private long _startTime;
+        private DateTime _workoutStartTime;
         private List<GeoCoordinate> _workoutCoordinates;
+        const string apiUrl = @"http://192.168.0.16/StartCompeting/api/Workout";
+        private double _millisPerKilometer;
 
 
         public MainPage()
@@ -42,6 +46,7 @@ namespace StartCompeting.Frontend.WindowsPhone
 
             _timer.Interval = TimeSpan.FromSeconds(1);
             _timer.Tick += Timer_Tick;
+            _workoutCoordinates = new List<GeoCoordinate>();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -64,13 +69,38 @@ namespace StartCompeting.Frontend.WindowsPhone
                 _watcher.Start();
                 _timer.Start();
                 _startTime = System.Environment.TickCount;
+                _workoutStartTime = DateTime.Now;
                 StartButton.Content = "Stop";
             }
         }
 
         private void SaveWorkout()
         {
+            // Call web api service to save workout
+            TimeSpan runTime = TimeSpan.FromMilliseconds(System.Environment.TickCount - _startTime);
+            var workoutViewModel = new WorkoutViewModel();
+            workoutViewModel.StartDateTime = _workoutStartTime;
+            workoutViewModel.Length = Convert.ToDecimal(_kilometres);
+            workoutViewModel.ElapsedHours = runTime.Hours;
+            workoutViewModel.ElapsedMinutes = runTime.Minutes;
+            workoutViewModel.ElapsedSeconds = runTime.Seconds;
+            workoutViewModel.AvgSpeed = Convert.ToDecimal(_millisPerKilometer);
 
+
+            var wc = new WebClient();
+            wc.UploadStringCompleted += new UploadStringCompletedEventHandler(webClient_SaveWorkoutCompleted);
+            
+            var json = JsonConvert.SerializeObject(workoutViewModel);
+            var uri = new Uri(apiUrl, UriKind.Absolute);
+            wc.Headers[HttpRequestHeader.Accept] = "application/json";
+            wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+            wc.UploadStringAsync(uri, "POST", json);
+            
+        }
+
+        private void webClient_SaveWorkoutCompleted(object sender, UploadStringCompletedEventArgs e)
+        {
+            Console.WriteLine("Saved!");
         }
 
         //ID_CAP_LOCATION
@@ -86,10 +116,10 @@ namespace StartCompeting.Frontend.WindowsPhone
                 _workoutCoordinates.Add(coord);
                 var previousPoint = _line.Path.Last();
                 var distance = coord.GetDistanceTo(previousPoint);
-                var millisPerKilometer = (1000.0 / distance) * (System.Environment.TickCount - _previousPositionChangeTick);
+                _millisPerKilometer = (1000.0 / distance) * (System.Environment.TickCount - _previousPositionChangeTick);
                 _kilometres += distance / 1000.0;
 
-                paceLabel.Text = TimeSpan.FromMilliseconds(millisPerKilometer).ToString(@"mm\:ss");
+                paceLabel.Text = TimeSpan.FromMilliseconds(_millisPerKilometer).ToString(@"mm\:ss");
                 distanceLabel.Text = string.Format("{0:f2} km", _kilometres);
                 caloriesLabel.Text = string.Format("{0:f0}", _kilometres * 65);
 

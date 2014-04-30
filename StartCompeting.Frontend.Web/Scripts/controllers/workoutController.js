@@ -2,11 +2,13 @@
 
 app.controller('WorkoutController', function($scope, $http) {
 
-    $http.get('/api/RaceType').success(function(data) {
+    var serviceUrl = '/StartCompeting/api/';
+
+    $http.get(serviceUrl + "RaceType").success(function (data) {
         $scope.raceTypes = data;
     });
 
-    $http.get('/api/Workout').success(function (data) {
+    $http.get(serviceUrl + "Workout").success(function (data) {
         $scope.workouts = data;
     });
 
@@ -14,7 +16,7 @@ app.controller('WorkoutController', function($scope, $http) {
     };
 
     $scope.submit = function() {
-        $http.post('/api/Workout', $scope.formData)
+        $http.post(serviceUrl + "Workout", $scope.formData)
             .success(function(data) {
                 alert("saved");
             }

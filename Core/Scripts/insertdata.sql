@@ -7,3 +7,5 @@ insert into RaceTypes (Name) VALUES ('Swimning')
 select * from RaceTypes
 
 select * from Workouts
+
+select * from Users
