@@ -22,4 +22,5 @@ app.controller('WorkoutController', function($scope, $http) {
             }
         );
     };
+    $scope.items = ['item1', 'item2', 'item3'];
 });

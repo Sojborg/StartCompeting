@@ -215,8 +215,14 @@
     <Compile Include="TestApiController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-ui.css" />
+    <Content Include="Content\angular-ui.min.css" />
     <Content Include="Content\ng-quick-date-default-theme.css" />
     <Content Include="Content\ng-quick-date.css" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\select2.png" />
+    <Content Include="Content\select2x2.png" />
+    <Content Include="Content\spinner.gif" />
     <Content Include="Content\startcompeting.css" />
     <Content Include="Content\Template\css\bootstrap.css" />
     <Content Include="Content\Template\css\bootstrap.min.css" />
@@ -322,10 +328,15 @@
     <Content Include="Content\Template\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\Template\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\Template\font-awesome\scss\_variables.scss" />
+    <Content Include="Scripts\angular-ui-ieshiv.js" />
+    <Content Include="Scripts\angular-ui-ieshiv.min.js" />
+    <Content Include="Scripts\angular-ui.js" />
+    <Content Include="Scripts\angular-ui.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\controllers\homeController.js" />
+    <Content Include="Scripts\controllers\modalController.js" />
     <Content Include="Scripts\controllers\workoutController.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -342,6 +353,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ng-quick-date.min.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
