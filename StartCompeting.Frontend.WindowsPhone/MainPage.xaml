@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     xmlns:util="clr-namespace:Util"
+    xmlns:viewModels="clr-namespace:StartCompeting.Frontend.WindowsPhone.ViewModels"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeMedium}"
@@ -25,7 +26,7 @@
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Assets/ApplicationIconLarge.png" Height="50"/>
-                <TextBlock Text="WP8Runner" VerticalAlignment="Center"
+                <TextBlock Text="{Binding Tester}" VerticalAlignment="Center"
                     Margin="10 0 0 0"
                     FontSize="{StaticResource PhoneFontSizeLarge}"/>
             </StackPanel>
@@ -71,29 +72,30 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <!-- distance -->
-                    <TextBlock Text="Distance:"/>
-                    <TextBlock Text="0 km" Grid.Column="1" x:Name="distanceLabel"
+                    <TextBlock Text="Distance"/>
+                    <TextBlock Text="{Binding Distance}" Grid.Column="1" x:Name="distanceLabel"
                 HorizontalAlignment="Center"/>
 
                     <!-- time -->
                     <TextBlock Text="Time:" Grid.Column="2"/>
-                    <TextBlock Text="00:00:00" Grid.Column="3" x:Name="timeLabel"
+                    <TextBlock Text="{Binding Time}" Grid.Column="3" x:Name="timeLabel"
                 HorizontalAlignment="Center"/>
 
                     <!-- calories -->
                     <TextBlock Text="Calories:" Grid.Row="1"/>
-                    <TextBlock Text="0" Grid.Column="1" x:Name="caloriesLabel"
+                    <TextBlock Text="{Binding Calories}" Grid.Column="1" x:Name="caloriesLabel"
                 HorizontalAlignment="Center" Grid.Row="1"/>
 
                     <!-- pace -->
                     <TextBlock Text="Pace:" Grid.Column="2" Grid.Row="1"/>
-                    <TextBlock Text="00:00" Grid.Column="3" x:Name="paceLabel"
+                    <TextBlock Text="{Binding Pace}" Grid.Column="3" x:Name="paceLabel"
                 HorizontalAlignment="Center" Grid.Row="1"/>
 
-                    <Button Content="Start"
+                    <Button
                   Grid.Row="2" Grid.ColumnSpan="4"
-                  Click="StartButton_Click"
-                  x:Name="StartButton" Margin="0,0,0,-25"
+                  Command="{Binding Path=StartCommand}"
+                  Content="{Binding StartButtonText}"
+                  x:Name="StartButton" Margin="0,2,0,-27"
                    />
                 </Grid>
             </Grid>
