@@ -10,5 +10,7 @@ namespace Core.Interfaces
     public interface IRaceTypeService
     {
         IList<RaceType> GetRaceTypes();
+
+        RaceType GetRaceType(int raceTypeId);
     }
 }

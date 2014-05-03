@@ -1,40 +1,12 @@
 ﻿var app = angular.module('startCompetingApp', []);
 
-app.controller('HomeController', function($scope, $http) {
+app.controller('homeController', function($scope, $http) {
 
-    //$http.get('Home/Users').success(function(data) {
-    //    $scope.users = data;
-    //});
+    var serviceUrl = '/StartCompeting/api/';
 
-    $scope.raceTypes = [
-    {
-        RaceType:
-            {
-                RaceTypeId:
-                    "1",
-                Name:
-                "Running"
-            }
-    },
-    {
-        RaceType:
-        {
-            RaceTypeId:
-                "2",
-            Name:
-                "Biking"
-        }
-    },
-    {
-        RaceType:
-        {
-            RaceTypeId:
-                "3",
-            Name:
-                "Swimming"
-        }
-    }
-];
+    $http.get(serviceUrl + "RaceType").success(function (data) {
+        $scope.raceTypes = data;
+    });
 
     $scope.formData = {
         name: "Aarhus halvmarathon",
@@ -45,8 +17,6 @@ app.controller('HomeController', function($scope, $http) {
         //    Name: "Running"
         //}
     };
-
-    
 
     $scope.submit = function() {
         $http.post('CreateRace', $scope.formData)

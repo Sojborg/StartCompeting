@@ -10,6 +10,8 @@ namespace Core.Interfaces
     {
         void CreateWorkout(Workout workout);
 
+        Workout GetWorkout(int workoutId);
+
         IEnumerable<Workout> GetAllUserWorkouts(int userId);
     }
 }

@@ -29,8 +29,10 @@ namespace Core.Models
 
         public DateTime CreatedDateTime { get; set; }
 
-        public User User { get; set; }
+        public virtual RaceType RaceType { get; set; }
 
-        public Race Race { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual Race Race { get; set; }
     }
 }

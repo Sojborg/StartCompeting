@@ -25,6 +25,11 @@ namespace Infrastruture.Services
             _workoutRepository.Save(workout);
         }
 
+        public Workout GetWorkout(int workoutId)
+        {
+            return _workoutRepository.GetById(workoutId);
+        }
+
         public IEnumerable<Workout> GetAllUserWorkouts(int userId)
         {
             var all = _workoutRepository.GetAll().ToList();

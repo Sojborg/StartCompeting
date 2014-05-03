@@ -21,5 +21,10 @@ namespace Infrastruture.Services
         {
             return _raceTypeRepository.GetAll().ToList();
         }
+
+        public RaceType GetRaceType(int raceTypeId)
+        {
+            return _raceTypeRepository.GetById(raceTypeId);
+        }
     }
 }

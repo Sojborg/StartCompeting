@@ -20,7 +20,7 @@ namespace StartCompeting.Frontend.Web.Controllers
             _raceTypeService = raceTypeService;
         }
 
-        public ActionResult AddWorkout()
+        public ActionResult Index()
         {
             return View();
         }
