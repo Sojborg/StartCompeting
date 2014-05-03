@@ -23,6 +23,7 @@
                     <th class="header">Km <i class="fa fa-sort"></i></th>
                     <th class="header">Speed <i class="fa fa-sort"></i></th>
                     <th class="header">Duration <i class="fa fa-sort"></i></th>
+                    <th class="header"> <i class="fa fa-sort"></i></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                     <td>{{w.Length}}</td>
                     <td>{{w.AvgSpeed}}</td>
                     <td>{{w.ElapsedMinutes}}:{{w.ElapsedSeconds}}</td>
+                    <td><a data-toggle="modal" href="#myModal" ng-click="getWorkout(w.Id)">Edit</a></td>
                 </tr>
             </tbody>
         </table>
@@ -43,10 +45,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Modal title</h4>
+                        <h4 class="modal-title">Add new workout</h4>
                     </div>
                     <div class="modal-body">
-                        <form ng-submit="submit()">
+                        <form ng-submit="submit()" name="form">
 
                             <div class="form-group">
                                 <label>Description</label>
@@ -60,12 +62,12 @@
 
                             <div class="form-group">
                                 <label>Selects</label>
-                                <select ng-model="formData.Id" class="form-control" ng-options="r.Id as r.Name for r in raceTypes"></select>
+                                <select ng-model="formData.raceTypeId" name="raceTypeId" class="form-control" ng-options="r.Id as r.Name for r in raceTypes"></select>
                             </div>
 
                             <div class="form-group">
                                 <label>Race length (km)</label>
-                                <input class="form-control workout-form-number-item" name="Length" ng-model="formData.Length">
+                                <input class="form-control workout-form-number-item" name="length" ng-model="formData.length">
                             </div>
 
                             <div class="form-group workout-duration">
@@ -83,7 +85,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" ng-click="submit()">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="submit()">Save changes</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
