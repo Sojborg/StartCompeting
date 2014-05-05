@@ -1,4 +1,5 @@
-﻿using Core.Interfaces;
+﻿using System.Web.UI.WebControls;
+using Core.Interfaces;
 using Core.Models;
 using StartCompeting.Frontend.Web.Models;
 using System;
@@ -47,7 +48,7 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
                     race.Name = viewModel.Name;
                     race.RaceLength = viewModel.RaceLength;
                     race.RaceType = raceType;
-                    _raceService.CreateRace(race);            
+                    _raceService.SaveRace(race);            
 
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
@@ -63,13 +64,37 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(RaceViewModel viewModel)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var race = _raceService.GetRace(viewModel.Id);
+                    var raceType = _raceTypeService.GetRaceType(viewModel.RaceTypeId);
+
+                    race.Name = viewModel.Name;
+                    race.RaceLength = viewModel.RaceLength;
+                    race.RaceType = raceType;
+                    _raceService.SaveRace(race);
+
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Invalid Model");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
+
         }
 
         private RaceViewModel Map(Race race)

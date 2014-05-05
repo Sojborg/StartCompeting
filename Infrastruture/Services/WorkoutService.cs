@@ -25,6 +25,13 @@ namespace Infrastruture.Services
             _workoutRepository.Save(workout);
         }
 
+        public void UpdateWorkout(Workout workout)
+        {
+            workout.EndDateTime = GetEndDateTime(workout);
+
+            _workoutRepository.Save(workout);
+        }
+
         public Workout GetWorkout(int workoutId)
         {
             return _workoutRepository.GetById(workoutId);

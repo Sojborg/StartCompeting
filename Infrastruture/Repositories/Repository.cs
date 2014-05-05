@@ -35,7 +35,10 @@ namespace Infrastruture.Repositories
 
         public void Save(TEntity entity)
         {
-            dynamic obj = _dbSet.Add(entity);
+            if (entity.Id == 0)
+            {
+                _dbSet.Add(entity);
+            }
             _context.SaveChanges();
         }
 

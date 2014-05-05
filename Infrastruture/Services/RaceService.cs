@@ -15,7 +15,7 @@ namespace Infrastruture.Services
             _raceTypeRepository = raceTypeRepository;
         }
 
-        public void CreateRace(Race race)
+        public void SaveRace(Race race)
         {
             race.CreatedDate = System.DateTime.Now;
             _raceRepository.Save(race);
@@ -34,6 +34,12 @@ namespace Infrastruture.Services
         public Race GetRace(int id)
         {
             return _raceRepository.GetById(id);
+        }
+
+        public void DeleteRace(int id)
+        {
+            var race = _raceRepository.GetById(id);
+            _raceRepository.Delete(race);
         }
     }
 }

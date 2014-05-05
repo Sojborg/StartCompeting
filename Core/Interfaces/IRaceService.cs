@@ -5,12 +5,14 @@ namespace Core.Interfaces
 {
     public interface IRaceService
     {
-        void CreateRace(Race race);
+        void SaveRace(Race race);
 
         IEnumerable<Race> GetRaces();
 
         RaceType GetRaceType(int id);
 
         Race GetRace(int id);
+
+        void DeleteRace(int id);
     }
 }

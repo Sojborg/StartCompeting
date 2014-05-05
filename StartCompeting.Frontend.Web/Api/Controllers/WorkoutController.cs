@@ -44,20 +44,8 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    var user = _userService.GetUser(1);
-                    var raceType = _raceTypeService.GetRaceType(workoutViewModel.RaceTypeId);
-
                     var workoutEntity = new Workout();
-                    workoutEntity.Name = workoutViewModel.Name;
-                    workoutEntity.Length = workoutViewModel.Length;
-                    workoutEntity.AvgSpeed = workoutViewModel.AvgSpeed;
-                    workoutEntity.StartDateTime = workoutViewModel.StartDateTime;
-                    workoutEntity.EndDateTime = workoutViewModel.EndDateTime;
-                    workoutEntity.ElapsedHours = workoutViewModel.ElapsedHours;
-                    workoutEntity.ElapsedMinutes = workoutViewModel.ElapsedMinutes;
-                    workoutEntity.ElapsedSeconds = workoutViewModel.ElapsedSeconds;
-                    workoutEntity.User = user;
-                    workoutEntity.RaceType = raceType;
+                    workoutEntity = MapToEntity(workoutViewModel, workoutEntity);
 
                     _workoutService.CreateWorkout(workoutEntity);
 
@@ -72,6 +60,49 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
 	        {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
 	        }
+        }
+
+        public HttpResponseMessage Put(WorkoutViewModel workoutViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var workoutEntity = _workoutService.GetWorkout(workoutViewModel.Id);
+
+                    workoutEntity = MapToEntity(workoutViewModel, workoutEntity);
+                    _workoutService.CreateWorkout(workoutEntity);
+
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Invalid Model");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        private Workout MapToEntity(WorkoutViewModel workoutViewModel, Workout workoutEntity)
+        {
+            var user = _userService.GetUser(1);
+            var raceType = _raceTypeService.GetRaceType(workoutViewModel.RaceTypeId);
+
+            workoutEntity.Name = workoutViewModel.Name;
+            workoutEntity.Length = workoutViewModel.Length;
+            workoutEntity.AvgSpeed = workoutViewModel.AvgSpeed;
+            workoutEntity.StartDateTime = workoutViewModel.StartDateTime;
+            workoutEntity.EndDateTime = workoutViewModel.EndDateTime;
+            workoutEntity.ElapsedHours = workoutViewModel.ElapsedHours;
+            workoutEntity.ElapsedMinutes = workoutViewModel.ElapsedMinutes;
+            workoutEntity.ElapsedSeconds = workoutViewModel.ElapsedSeconds;
+            workoutEntity.User = user;
+            workoutEntity.RaceType = raceType;
+
+            return workoutEntity;
         }
 
         private WorkoutViewModel Map(Workout entity)

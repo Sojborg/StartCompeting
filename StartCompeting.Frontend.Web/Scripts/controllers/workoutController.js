@@ -1,52 +1,55 @@
-﻿var app = angular.module('startCompetingApp', ["ngQuickDate"]);
-
-app.controller('WorkoutController', function($scope, $http) {
-
-    var serviceUrl = '/StartCompeting/api/';
-
-    loadRaceTypes();
-    loadWorkouts();
+﻿app.controller('WorkoutController', function($scope, $http, workoutService) {
 
     $scope.formData = {
     };
 
-    $scope.submit = function() {
-        $http.post(serviceUrl + "Workout", $scope.formData)
-            .success(function (data) {
-                $scope.form.$setPristine();
-                loadWorkouts();
-                alert("saved");
-            }
-        );
+    $scope.submit = function () {
+        if ($scope.formData.id == undefined || $scope.formData.id == 0)
+            workoutService.createWorkout($scope.formData).then(function(data) {
+                if (data)
+                    $scope.resetWorkout();
+            });
+        else {
+
+            workoutService.updateWorkout($scope.formData).then(function(data) {
+                if (data) {
+                    $scope.resetWorkout();
+                }
+            });
+        }
     };
 
     $scope.getWorkout = function (id) {
-        loadWorkoutById(id);
+        workoutService.loadWorkoutById(id).then(function(data) {
+            $scope.formData = data;
+        });
     };
 
-    function loadWorkoutById(id) {        
-        $http.get(serviceUrl + "Workout?workoutId=" + id)
-            .success(function (data) {
-                $scope.formData.name = data.Name;
-                $scope.formData.startDateTime = data.StartDateTime
-                $scope.formData.raceTypeId = data.RaceTypeId;
-                $scope.formData.length = data.Length;
-                $scope.formData.elapsedHours = data.ElapsedHours;
-                $scope.formData.elapsedMinutes = data.ElapsedMinutes;
-                $scope.formData.elapsedSeconds = data.ElapsedSeconds;
-                $scope.formData.avgSpeed = data.AvgSpeed;
-            });
+    $scope.resetWorkout = function() {
+        $scope.form.$setPristine();
+        $scope.loadWorkouts();
+        alert("saved");
     }
 
-    function loadWorkouts() {
-        $http.get(serviceUrl + "Workout").success(function (data) {
+    $scope.loadWorkouts = function() {
+        workoutService.loadWorkouts().then(function (data) {
             $scope.workouts = data;
+        },
+        function (errorMessage) {
+            $scope.error = errorMessage;
         });
     }
 
-    function loadRaceTypes() {
-        $http.get(serviceUrl + "RaceType").success(function (data) {
+    $scope.loadRaceTypes = function () {
+        workoutService.loadRaceTypes().then(function (data) {
             $scope.raceTypes = data;
+        },
+        function (errorMessage) {
+            $scope.error = errorMessage;
         });
+        
     }
+
+    $scope.loadRaceTypes();
+    $scope.loadWorkouts();
 });

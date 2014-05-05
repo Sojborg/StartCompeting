@@ -326,7 +326,9 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\controllers\homeController.js" />
+    <Content Include="Scripts\controllers\app.js" />
+    <Content Include="Scripts\controllers\raceController.js" />
+    <Content Include="Scripts\services\workoutService.js" />
     <Content Include="Scripts\controllers\workoutController.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />

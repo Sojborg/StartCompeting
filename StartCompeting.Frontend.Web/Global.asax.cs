@@ -65,6 +65,7 @@ namespace StartCompeting.Frontend.Web
             kernel.Bind<IRepository<RaceType>>().To<Repository<RaceType>>();
             kernel.Bind<IRepository<Workout>>().To<Repository<Workout>>();
             kernel.Bind<IRaceTypeService>().To<RaceTypeService>();
+            kernel.Bind<IRaceService>().To<RaceService>();
             return kernel;
         }
     }

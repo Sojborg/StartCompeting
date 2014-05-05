@@ -29,8 +29,8 @@
                 <tr ng-repeat="r in races">
                     <td>{{r.Name}}</td>
                     <td>{{r.RaceTypeId}}</td>
-                    <td>{{r.Length}}</td>
-                    <td><a data-toggle="modal" href="#myModal" ng-click="getWorkout(r.Id)">Edit</a></td>
+                    <td>{{r.RaceLength}}</td>
+                    <td><a data-toggle="modal" href="#myModal" ng-click="getRace(r.Id)">Edit</a></td>
                 </tr>
             </tbody>
         </table>
@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <label>Race length (km)</label>
-                                <input class="form-control workout-form-number-item" name="length" ng-model="formData.length">
+                                <input class="form-control workout-form-number-item" name="raceLength" ng-model="formData.raceLength">
                             </div>
                         </form>
                     </div>
