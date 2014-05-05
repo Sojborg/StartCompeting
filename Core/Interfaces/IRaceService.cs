@@ -1,4 +1,5 @@
 ﻿using Core.Models;
+using System.Collections.Generic;
 
 namespace Core.Interfaces
 {
@@ -6,6 +7,10 @@ namespace Core.Interfaces
     {
         void CreateRace(Race race);
 
+        IEnumerable<Race> GetRaces();
+
         RaceType GetRaceType(int id);
+
+        Race GetRace(int id);
     }
 }

@@ -1,28 +1,38 @@
 ﻿var app = angular.module('startCompetingApp', []);
 
-app.controller('homeController', function($scope, $http) {
+app.controller('RaceController', function($scope, $http) {
 
     var serviceUrl = '/StartCompeting/api/';
+    loadRaces();
+    loadRaceTypes();
 
     $http.get(serviceUrl + "RaceType").success(function (data) {
         $scope.raceTypes = data;
     });
 
     $scope.formData = {
-        name: "Aarhus halvmarathon",
-        raceLength: "10",
-        RaceTypeId: $scope.raceTypes[1]
-        //{
-        //    RaceTypeId: "1",
-        //    Name: "Running"
-        //}
+
     };
 
     $scope.submit = function() {
-        $http.post('CreateRace', $scope.formData)
-            .success(function(data) {
+        $http.post('Race', $scope.formData)
+            .success(function (data) {
+                $scope.form.$setPristine();
+                loadWorkouts();
                 alert("saved");
             }
         );
     };
+
+    function loadRaces() {
+        $http.get(serviceUrl + "Race").success(function (data) {
+            $scope.races = data;
+        });
+    }
+
+    function loadRaceTypes() {
+        $http.get(serviceUrl + "RaceType").success(function (data) {
+            $scope.raceTypes = data;
+        });
+    }
 });

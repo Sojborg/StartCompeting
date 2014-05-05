@@ -192,6 +192,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Controllers\RaceController.cs" />
     <Compile Include="Api\Controllers\RaceTypeController.cs" />
     <Compile Include="Api\Controllers\WorkoutController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -386,6 +387,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Race\AddRace.cshtml" />
     <Content Include="Views\Workout\Index.cshtml" />
+    <Content Include="Views\Race\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

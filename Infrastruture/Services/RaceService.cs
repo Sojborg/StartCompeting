@@ -1,5 +1,6 @@
 using Core.Interfaces;
 using Core.Models;
+using System.Collections.Generic;
 
 namespace Infrastruture.Services
 {
@@ -20,9 +21,19 @@ namespace Infrastruture.Services
             _raceRepository.Save(race);
         }
 
+        public IEnumerable<Race> GetRaces()
+        {
+            return _raceRepository.GetAll();
+        }
+
         public RaceType GetRaceType(int id)
         {
             return _raceTypeRepository.GetById(id);
+        }
+
+        public Race GetRace(int id)
+        {
+            return _raceRepository.GetById(id);
         }
     }
 }

@@ -22,24 +22,9 @@ namespace StartCompeting.Frontend.Web.Controllers
         //
         // GET: /Race/
 
-        public ActionResult AddRace()
+        public ActionResult Index()
         {
             return View();
-        }
-
-
-        [HttpPost]
-        public JsonResult CreateRace(RaceViewModel raceModel)
-        {
-            var raceType = _raceService.GetRaceType(raceModel.RaceTypeId);
-
-            var raceEntity = new Race();
-            raceEntity.Name = raceModel.Name;
-            raceEntity.RaceLength = raceModel.RaceLength;
-            raceEntity.RaceType = raceType;
-
-            _raceService.CreateRace(raceEntity);
-            return Json(true);
         }
     }
 }

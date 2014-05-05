@@ -1,43 +1,41 @@
 ﻿@{
-    ViewBag.Title = "Workouts";
+    ViewBag.Title = "Races";
 }
 
 <div></div>
 <div class="row">
     <div class="col-lg-12">
-        <h1>Workout <small>Enter new</small></h1>
+        <h1>Race <small></small></h1>
         <ol class="breadcrumb">
             <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li class="active"><i class="fa fa-edit"></i> Workout</li>
+            <li class="active"><i class="fa fa-edit"></i> Races</li>
         </ol>
     </div>
 </div>
 
-<div class="row" ng-controller="WorkoutController">
+<div class="row" ng-controller="RaceController">
     <div class="col-lg-6">
 
         <table class="table table-bordered table-hover tablesorter">
             <thead>
                 <tr>
-                    <th class="header">Start <i class="fa fa-sort"></i></th>
-                    <th class="header">Km <i class="fa fa-sort"></i></th>
-                    <th class="header">Speed <i class="fa fa-sort"></i></th>
-                    <th class="header">Duration <i class="fa fa-sort"></i></th>
+                    <th class="header">Name <i class="fa fa-sort"></i></th>
+                    <th class="header">Type <i class="fa fa-sort"></i></th>
+                    <th class="header">Length <i class="fa fa-sort"></i></th>
                     <th class="header"> <i class="fa fa-sort"></i></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="w in workouts">
-                    <td>{{w.StartDateTime}}</td>
-                    <td>{{w.Length}}</td>
-                    <td>{{w.AvgSpeed}}</td>
-                    <td>{{w.ElapsedMinutes}}:{{w.ElapsedSeconds}}</td>
-                    <td><a data-toggle="modal" href="#myModal" ng-click="getWorkout(w.Id)">Edit</a></td>
+                <tr ng-repeat="r in races">
+                    <td>{{r.Name}}</td>
+                    <td>{{r.RaceTypeId}}</td>
+                    <td>{{r.Length}}</td>
+                    <td><a data-toggle="modal" href="#myModal" ng-click="getWorkout(r.Id)">Edit</a></td>
                 </tr>
             </tbody>
         </table>
         <!-- Button trigger modal -->
-        <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Add new workout</a>
+        <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Add new race</a>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -45,7 +43,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Add new workout</h4>
+                        <h4 class="modal-title">Add new race</h4>
                     </div>
                     <div class="modal-body">
                         <form ng-submit="submit()" name="form">
@@ -56,11 +54,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Dato</label>
-                                <quick-datepicker ng-model='formData.startDateTime' date-format='dd-MM-yyyy' placeholder="Pick a date" disable-timepicker="true"></quick-datepicker>
-                            </div>
-
-                            <div class="form-group">
                                 <label>Selects</label>
                                 <select ng-model="formData.raceTypeId" name="raceTypeId" class="form-control" ng-options="r.Id as r.Name for r in raceTypes"></select>
                             </div>
@@ -68,18 +61,6 @@
                             <div class="form-group">
                                 <label>Race length (km)</label>
                                 <input class="form-control workout-form-number-item" name="length" ng-model="formData.length">
-                            </div>
-
-                            <div class="form-group workout-duration">
-                                <label>Duration</label>
-                                <input class="form-control workout-form-number-item workout-duration-item" placeholder="HH" name="elapsedHours" ng-model="formData.elapsedHours" />
-                                <input class="form-control workout-form-number-item workout-duration-item" placeholder="MM" name="elapsedMinutes" ng-model="formData.elapsedMinutes" />
-                                <input class="form-control workout-form-number-item workout-duration-item" placeholder="SS" name="elapsedSeconds" ng-model="formData.elapsedSeconds" />
-                            </div>
-
-                            <div class="form-group">
-                                <label>Avg speed (km/h)</label>
-                                <input class="form-control workout-form-number-item" name="avgSpeed" ng-model="formData.avgSpeed">
                             </div>
                         </form>
                     </div>
