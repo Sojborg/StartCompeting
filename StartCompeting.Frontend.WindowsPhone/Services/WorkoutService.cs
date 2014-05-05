@@ -10,7 +10,7 @@ namespace StartCompeting.Frontend.WindowsPhone.Services
 {
     public class WorkoutService
     {
-        const string apiUrl = @"http://192.168.0.16/StartCompeting/api/Workout";
+        const string apiUrl = @"http://192.168.0.13/StartCompeting/api/Workout";
 
         public void SaveWorkout(WorkoutViewModel workoutViewModel)
         {

@@ -35,7 +35,8 @@ namespace StartCompeting.Frontend.WindowsPhone.ViewModels
 
         public MainPageViewModel(Map map)
         {
-            StartCommand = new DelegateCommand<object>(this.OnStart, this.CanStart); ShowMyLocationOnTheMap();
+            StartCommand = new DelegateCommand<object>(this.OnStart, this.CanStart); 
+            ShowMyLocationOnTheMap();
             StartCompetingMap = map;
 
             // create a line which illustrates the run
@@ -144,6 +145,7 @@ namespace StartCompeting.Frontend.WindowsPhone.ViewModels
             workoutViewModel.ElapsedMinutes = runTime.Minutes;
             workoutViewModel.ElapsedSeconds = runTime.Seconds;
             workoutViewModel.AvgSpeed = Convert.ToDecimal(_millisPerKilometer);
+            workoutViewModel.RaceTypeId = 1;
 
             _workoutService.SaveWorkout(workoutViewModel);
         }
