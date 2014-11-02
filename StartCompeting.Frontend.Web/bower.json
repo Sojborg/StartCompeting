@@ -1,0 +1,21 @@
+{
+  "name": "StartCompeting",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Sojborg/StartCompeting",
+  "authors": [
+    "Jesper Søjborg Johnsen"
+  ],
+  "description": "StartCompeting - Makes Amatures Pros!",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ngQuickDate": "~1.3.3"
+  }
+}
