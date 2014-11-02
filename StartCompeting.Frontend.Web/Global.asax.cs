@@ -38,6 +38,7 @@ namespace StartCompeting.Frontend.Web
                     id = UrlParameter.Optional
                 });
         }
+
         protected override void OnApplicationStarted()
         {
             base.OnApplicationStarted();

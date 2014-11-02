@@ -1,6 +1,6 @@
 ﻿app.controller('RaceController', function($scope, $http) {
 
-    var serviceUrl = '/StartCompeting/api/';
+    var serviceUrl = '/api/';
     loadRaces();
     loadRaceTypes();
 
