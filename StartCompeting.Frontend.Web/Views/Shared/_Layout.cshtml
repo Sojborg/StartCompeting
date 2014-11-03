@@ -12,8 +12,8 @@
         <!-- Add custom CSS here -->
         <link href="~/Content/Template/css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="~/Content/Template/font-awesome/css/font-awesome.min.css">
-        <link href="~/Content/ng-quick-date.css" rel="stylesheet" />
-        <link href="~/Content/ng-quick-date-default-theme.css" rel="stylesheet" />
+        <link href="~/bower_components/ngQuickDate/dist/ng-quick-date.css" rel="stylesheet" />
+        <link href="~/bower_components/ngQuickDate/dist/ng-quick-date-default-theme.css" rel="stylesheet" />
         <link href="~/Content/startcompeting.css" rel="stylesheet" />
         <!-- Page Specific CSS -->
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
@@ -119,6 +119,7 @@
             @RenderSection("scripts", required: false)
             <!-- JavaScript -->
             <script src="~/bower_components/angular/angular.min.js"></script>
+            <script src="~/bower_components/angular-route/angular-route.min.js"></script>
             <script src="~/app/app.js"></script>
             <script src="~/app/workout/workout-service.js"></script>
             <script src="~/app/workout/workout-controller.js"></script>
@@ -132,7 +133,7 @@
             <script src="~/Content/Template/js/morris/chart-data-morris.js"></script>
             <script src="~/Content/Template/js/tablesorter/jquery.tablesorter.js"></script>
             <script src="~/Content/Template/js/tablesorter/tables.js"></script>
-            <script src="~/Scripts/ng-quick-date.min.js"></script>
+            <script src="~/bower_components/ngQuickDate/dist/ng-quick-date.min.js"></script>
             </div>
 </body>
 </html>

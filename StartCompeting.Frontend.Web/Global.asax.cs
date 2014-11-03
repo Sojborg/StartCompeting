@@ -24,20 +24,20 @@ namespace StartCompeting.Frontend.Web
 
     public class MvcApplication : NinjectHttpApplication
     {
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new
-                {
-                    controller = "Home",
-                    action = "Index",
-                    id = UrlParameter.Optional
-                });
-        }
+        //    routes.MapRoute(
+        //        "Default", // Route name
+        //        "{controller}/{action}/{id}", // URL with parameters
+        //        new
+        //        {
+        //            controller = "Home",
+        //            action = "Index",
+        //            id = UrlParameter.Optional
+        //        });
+        //}
 
         protected override void OnApplicationStarted()
         {
@@ -47,7 +47,7 @@ namespace StartCompeting.Frontend.Web
             //RouteConfig.RegisterRoutes(RouteTable.Routes);
             //BundleConfig.RegisterBundles(BundleTable.Bundles);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
-            RegisterRoutes(RouteTable.Routes);
+            //RegisterRoutes(RouteTable.Routes);
             //AuthConfig.RegisterAuth();
         }
 
