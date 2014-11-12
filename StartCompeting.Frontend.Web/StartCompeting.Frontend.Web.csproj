@@ -215,8 +215,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\race\race-modal-controller.js" />
+    <Content Include="app\race\race-modal.html" />
+    <Content Include="app\race\race-service.js" />
+    <Content Include="app\workout\workout-modal-controller.js" />
+    <Content Include="app\workout\workout-modal.html" />
     <Content Include="app\home\home-controller.js" />
     <Content Include="app\home\home.html" />
+    <Content Include="app\race\race-list.html" />
     <Content Include="bower_components\font-awesome\css\font-awesome.min.css" />
     <Content Include="index.html" />
     <Content Include="app\workout\workout-list.html" />
@@ -593,6 +599,7 @@
     <Content Include="Views\Race\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\directives\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

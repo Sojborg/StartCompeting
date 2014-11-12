@@ -1,18 +1,18 @@
-﻿app.service('workoutService', function ($http, $q) {
+﻿app.service('raceService', function ($http, $q) {
 
-    var apiPath = '/api/Workout';
+    var apiPath = '/api/Race';
 
     var service = {
-        loadWorkouts: loadWorkouts,
+        loadRaces: loadRaces,
         loadRaceTypes: loadRaceTypes,
-        loadWorkoutById: loadWorkoutById,
-        createWorkout: createWorkout,
-        updateWorkout: updateWorkout
+        loadRaceById: loadRaceById,
+        createRace: createRace,
+        updateRace: updateRace
     };
 
     return service;
 
-    function loadWorkouts() {
+    function loadRaces() {
         var deferred = $q.defer();
 
         $http.get(apiPath).success(function (data) {
@@ -36,28 +36,23 @@
         return deferred.promise;
     }
 
-    function loadWorkoutById(id) {
+    function loadRaceById(id) {
         var deferred = $q.defer();
 
-        $http.get(apiPath + "?workoutId=" + id)
+        $http.get(apiPath + "?id=" + id)
             .success(function (data) {
                 var formData = {};
                 formData.id = data.Id;
                 formData.name = data.Name;
-                formData.startDateTime = data.StartDateTime
                 formData.raceTypeId = data.RaceTypeId;
-                formData.length = data.Length;
-                formData.elapsedHours = data.ElapsedHours;
-                formData.elapsedMinutes = data.ElapsedMinutes;
-                formData.elapsedSeconds = data.ElapsedSeconds;
-                formData.avgSpeed = data.AvgSpeed;
+                formData.raceLength = data.RaceLength;
                 deferred.resolve(formData);
             });
 
         return deferred.promise;
     }
 
-    function createWorkout(formData) {
+    function createRace(formData) {
         var deferred = $q.defer();
 
         $http.post(apiPath, formData)
@@ -69,7 +64,7 @@
         return deferred.promise;
     }
 
-    function updateWorkout(formData) {
+    function updateRace(formData) {
         var deferred = $q.defer();
 
         $http.put(apiPath, formData)
