@@ -1,4 +1,4 @@
-﻿app.service('raceService', function ($http, $q) {
+﻿app.service('raceService', function ($http) {
 
     var apiPath = '/api/Race';
 
@@ -13,65 +13,42 @@
     return service;
 
     function loadRaces() {
-        var deferred = $q.defer();
-
-        $http.get(apiPath).success(function (data) {
-            deferred.resolve(data);
-        }).error(function () {
-            deferred.reject("An error occured while fetching items");
+        return $http.get(apiPath).then(function(reply) {
+            return reply.data;
         });
-
-        return deferred.promise;
     }
 
     function loadRaceTypes() {
-        var deferred = $q.defer();
-
-        $http.get("/api/RaceType").success(function (data) {
-            deferred.resolve(data);
-        }).error(function () {
-            deferred.reject("An error occured while fetching items");
+        return $http.get("/api/RaceType").then(function(reply) {
+            return reply.data;
         });
-
-        return deferred.promise;
     }
 
     function loadRaceById(id) {
-        var deferred = $q.defer();
-
-        $http.get(apiPath + "?id=" + id)
-            .success(function (data) {
+        return $http.get(apiPath + "?id=" + id)
+            .then(function(reply) {
+                var data = reply.data;
                 var formData = {};
                 formData.id = data.Id;
                 formData.name = data.Name;
                 formData.raceTypeId = data.RaceTypeId;
                 formData.raceLength = data.RaceLength;
-                deferred.resolve(formData);
+                return formData;
             });
-
-        return deferred.promise;
     }
 
     function createRace(formData) {
-        var deferred = $q.defer();
-
-        $http.post(apiPath, formData)
-            .success(function (data) {
-                deferred.resolve(true);
+        return $http.post(apiPath, formData)
+            .then(function (data) {
+                return true;
             }
         );
-
-        return deferred.promise;
     }
 
     function updateRace(formData) {
-        var deferred = $q.defer();
-
-        $http.put(apiPath, formData)
+        return $http.put(apiPath, formData)
             .success(function (data) {
-                deferred.resolve(true);
-            });
-
-        return deferred.promise;
+            return true;
+        });
     }
 });

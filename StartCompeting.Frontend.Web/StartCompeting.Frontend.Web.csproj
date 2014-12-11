@@ -215,6 +215,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\app\achievement\achievement-controller.js" />
+    <Content Include="Client\app\achievement\achievement-list.html" />
+    <Content Include="Client\app\achievement\achievement-modal-controller.js" />
+    <Content Include="Client\app\achievement\achievement-modal.html" />
+    <Content Include="Client\app\achievement\achievement-service.js" />
     <Content Include="Client\app\race\race-modal-controller.js" />
     <Content Include="Client\app\race\race-modal.html" />
     <Content Include="Client\app\race\race-service.js" />

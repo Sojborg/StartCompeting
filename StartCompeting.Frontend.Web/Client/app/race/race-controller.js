@@ -9,7 +9,7 @@
     $scope.open = function (raceId) {
 
         var modalInstance = $modal.open({
-            templateUrl: 'app/race/race-modal.html',
+            templateUrl: 'Client/app/race/race-modal.html',
             controller: 'RaceModalCtrl',
             size: '',
             resolve: {
