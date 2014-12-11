@@ -24,5 +24,7 @@ namespace Infrastruture
         public DbSet<Race> Race { get; set; }
         public DbSet<RaceType> RaceType { get; set; }
         public DbSet<Workout> Workout { get; set; }
+        public DbSet<Achievement> Achievement { get; set; }
+        public DbSet<AchievementRequirement> AchievementRequirement { get; set; }
     }
 }

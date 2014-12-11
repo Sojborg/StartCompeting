@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAchievementService.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRaceRepository.cs" />
     <Compile Include="Interfaces\IRaceService.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IWorkoutService.cs" />
+    <Compile Include="Models\Achievement.cs" />
+    <Compile Include="Models\AchievementRequirement.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\RaceType.cs" />
     <Compile Include="Models\User.cs" />
