@@ -13,34 +13,21 @@
     return service;
 
     function loadWorkouts() {
-        var deferred = $q.defer();
-
-        $http.get(apiPath).success(function (data) {
-            deferred.resolve(data);
-        }).error(function () {
-            deferred.reject("An error occured while fetching items");
+        return $http.get(apiPath).then(function(reply) {
+            return reply.data;
         });
-
-        return deferred.promise;
     }
 
     function loadRaceTypes() {
-        var deferred = $q.defer();
-
-        $http.get("/api/RaceType").success(function (data) {
-            deferred.resolve(data);
-        }).error(function () {
-            deferred.reject("An error occured while fetching items");
+        return $http.get("/api/RaceType").then(function(reply) {
+            return reply.data;
         });
-
-        return deferred.promise;
     }
 
     function loadWorkoutById(id) {
-        var deferred = $q.defer();
-
-        $http.get(apiPath + "?workoutId=" + id)
-            .success(function (data) {
+        return $http.get(apiPath + "?workoutId=" + id)
+            .then(function(reply) {
+                var data = reply.data;
                 var formData = {};
                 formData.id = data.Id;
                 formData.name = data.Name;
@@ -51,32 +38,22 @@
                 formData.elapsedMinutes = data.ElapsedMinutes;
                 formData.elapsedSeconds = data.ElapsedSeconds;
                 formData.avgSpeed = data.AvgSpeed;
-                deferred.resolve(formData);
+                return formData;
             });
-
-        return deferred.promise;
     }
 
     function createWorkout(formData) {
-        var deferred = $q.defer();
-
-        $http.post(apiPath, formData)
-            .success(function (data) {
-                deferred.resolve(true);
+        return $http.post(apiPath, formData)
+            .then(function (reply) {
+                return true;
             }
         );
-
-        return deferred.promise;
     }
 
     function updateWorkout(formData) {
-        var deferred = $q.defer();
-
-        $http.put(apiPath, formData)
-            .success(function (data) {
-                deferred.resolve(true);
-            });
-
-        return deferred.promise;
+        return $http.put(apiPath, formData)
+            .then(function (reply) {
+            return true;
+        });
     }
 });

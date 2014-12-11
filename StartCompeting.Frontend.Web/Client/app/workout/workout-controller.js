@@ -3,7 +3,7 @@
     $scope.open = function (workoutId) {
         
         var modalInstance = $modal.open({
-            templateUrl: 'app/workout/workout-modal.html',
+            templateUrl: 'Client/app/workout/workout-modal.html',
             controller: 'ModalInstanceCtrl',
             size: '',
             resolve: {
