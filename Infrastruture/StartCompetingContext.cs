@@ -8,7 +8,7 @@ namespace Infrastruture
     {
         public StartCompetingContext() : base("name=StartCompetingContext")
         {
-            Database.SetInitializer<StartCompetingContext>(new DropCreateDatabaseIfModelChanges<StartCompetingContext>());
+            Database.SetInitializer(new StartCompetingInitializer());
         }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,5 +26,7 @@ namespace Infrastruture
         public DbSet<Workout> Workout { get; set; }
         public DbSet<Achievement> Achievement { get; set; }
         public DbSet<AchievementRequirement> AchievementRequirement { get; set; }
+        public DbSet<League> League { get; set; }
+        public DbSet<LeagueType> LeagueType { get; set; }
     }
 }
