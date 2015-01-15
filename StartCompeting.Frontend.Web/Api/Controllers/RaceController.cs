@@ -25,7 +25,7 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
         // GET api/<controller>
         public IEnumerable<RaceViewModel> Get()
         {
-            var races = _raceService.GetRaces().Select(x => Map(x));
+            var races = _raceService.GetRaces().Select(Map);
             return races;
         }
 
