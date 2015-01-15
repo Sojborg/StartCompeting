@@ -49,16 +49,16 @@ namespace StartCompeting.Frontend.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             //RegisterRoutes(RouteTable.Routes);
             //AuthConfig.RegisterAuth();
+            CreateKernel();
         }
 
         protected override Ninject.IKernel CreateKernel()
         {
-            Database.SetInitializer<StartCompetingContext>(null);
             var kernel = new StandardKernel();
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
 
             kernel.Load(Assembly.GetExecutingAssembly());
-            kernel.Bind<StartCompetingContext>().ToSelf().InRequestScope();
+            kernel.Bind<StartCompetingContext>().ToSelf().InSingletonScope();
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IWorkoutService>().To<WorkoutService>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
@@ -67,6 +67,8 @@ namespace StartCompeting.Frontend.Web
             kernel.Bind<IRepository<Workout>>().To<Repository<Workout>>();
             kernel.Bind<IRaceTypeService>().To<RaceTypeService>();
             kernel.Bind<IRaceService>().To<RaceService>();
+            kernel.Bind<ILeagueTypeService>().To<LeagueTypeService>();
+            kernel.Bind<ILeagueService>().To<LeagueService>();
             return kernel;
         }
     }
