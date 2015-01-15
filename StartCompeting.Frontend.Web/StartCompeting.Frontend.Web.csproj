@@ -192,6 +192,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Controllers\LeagueController.cs" />
     <Compile Include="Api\Controllers\RaceController.cs" />
     <Compile Include="Api\Controllers\RaceTypeController.cs" />
     <Compile Include="Api\Controllers\WorkoutController.cs" />
@@ -202,7 +203,9 @@
     <Compile Include="Controllers\WorkoutController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\LeagueViewModel.cs" />
     <Compile Include="Models\RaceTypeViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\WorkoutViewModel.cs" />
     <Compile Include="Models\RaceViewModel.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -220,6 +223,11 @@
     <Content Include="Client\app\achievement\achievement-modal-controller.js" />
     <Content Include="Client\app\achievement\achievement-modal.html" />
     <Content Include="Client\app\achievement\achievement-service.js" />
+    <Content Include="Client\app\league\league-controller.js" />
+    <Content Include="Client\app\league\leauge-list.html" />
+    <Content Include="Client\app\league\league-modal-controller.js" />
+    <Content Include="Client\app\league\league-modal.html" />
+    <Content Include="Client\app\league\league-service.js" />
     <Content Include="Client\app\race\race-modal-controller.js" />
     <Content Include="Client\app\race\race-modal.html" />
     <Content Include="Client\app\race\race-service.js" />

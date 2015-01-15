@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAchievementService.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\ILeagueTypeService.cs" />
     <Compile Include="Interfaces\IRaceRepository.cs" />
+    <Compile Include="Interfaces\ILeagueService.cs" />
     <Compile Include="Interfaces\IRaceService.cs" />
     <Compile Include="Interfaces\IRaceTypeService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
@@ -57,6 +59,8 @@
     <Compile Include="Interfaces\IWorkoutService.cs" />
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\AchievementRequirement.cs" />
+    <Compile Include="Models\League.cs" />
+    <Compile Include="Models\LeagueType.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\RaceType.cs" />
     <Compile Include="Models\User.cs" />

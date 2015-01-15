@@ -20,6 +20,10 @@ app.config([
                 templateUrl: 'Client/app/race/achievement-list.html',
                 controller: 'AchievementController'
             }).
+            when('/leagues', {
+                templateUrl: 'Client/app/league/league-list.html',
+                controller: 'LeagueController'
+            }).
             when('/', {
                 templateUrl: 'Client/app/home/home.html',
                 controller: 'HomeController'

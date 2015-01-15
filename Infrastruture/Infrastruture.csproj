@@ -55,11 +55,14 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\AchievementService.cs" />
+    <Compile Include="Services\LeagueService.cs" />
+    <Compile Include="Services\LeagueTypeService.cs" />
     <Compile Include="Services\RaceService.cs" />
     <Compile Include="Services\RaceTypeService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\WorkoutService.cs" />
     <Compile Include="StartCompetingContext.cs" />
+    <Compile Include="StartCompetingInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
