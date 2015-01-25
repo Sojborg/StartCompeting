@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -48,6 +49,8 @@ namespace StartCompeting.Frontend.Web
             
             var bootstrap = new Bootstrap();
             bootstrap.InstallDependencies();
+            bootstrap.HandleExceptions();
+            log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/log4net.config")));
         }
     }
 }
