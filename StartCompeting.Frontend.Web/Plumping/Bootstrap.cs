@@ -25,7 +25,7 @@ namespace StartCompeting.Frontend.Web.Plumping
 
         public void HandleExceptions()
         {
-            GlobalConfiguration.Configuration.Services.Add(typeof(IExceptionLogger), new NlogExceptionLogger());
+            GlobalConfiguration.Configuration.Services.Add(typeof(IExceptionLogger), new Log4ExceptionLogger());
         }
     }
 }

@@ -231,7 +231,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Plumping\NlogExceptionLogger.cs" />
+    <Compile Include="Plumping\Log4ExceptionLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Plumping\WindsorCompositionRoot.cs" />
   </ItemGroup>
@@ -246,6 +246,7 @@
     <Content Include="Client\app\league\league-modal-controller.js" />
     <Content Include="Client\app\league\league-modal.html" />
     <Content Include="Client\app\league\league-service.js" />
+    <Content Include="Client\app\map\map.html" />
     <Content Include="Client\app\race\race-modal-controller.js" />
     <Content Include="Client\app\race\race-modal.html" />
     <Content Include="Client\app\race\race-service.js" />

@@ -24,6 +24,9 @@ app.config([
                 templateUrl: 'Client/app/league/league-list.html',
                 controller: 'LeagueController'
             }).
+            when('/map', {
+                templateUrl: 'Client/app/map/map.html'
+            }).
             when('/', {
                 templateUrl: 'Client/app/home/home.html',
                 controller: 'HomeController'
