@@ -64,6 +64,7 @@
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\RaceType.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserRace.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
