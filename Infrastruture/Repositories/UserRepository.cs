@@ -7,32 +7,32 @@ namespace Infrastruture.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private StartCompetingContext _context;
+        private IStartCompetingContext _context;
 
-        public UserRepository(StartCompetingContext context)
+        public UserRepository(IStartCompetingContext context)
         {
             _context = context;
         }
 
         public void Create(User user)
         {
-            _context.Users.Add(user);
+            _context.StartCompetingUsers.Add(user);
             _context.SaveChanges();
         }
 
         public IEnumerable<User> GetAll()
         {
-            return _context.Users;
+            return _context.StartCompetingUsers;
         }
 
         public User GetUser(int id)
         {
-            return _context.Users.Find(id);
+            return _context.StartCompetingUsers.Find(id);
         }
 
         public DbSet<User> Table()
         {
-            return _context.Users;
+            return _context.StartCompetingUsers;
         }
     }
 }

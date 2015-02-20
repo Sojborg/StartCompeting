@@ -8,10 +8,10 @@ namespace Infrastruture.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        private readonly StartCompetingContext _context;
+        private readonly IStartCompetingContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public Repository(StartCompetingContext context)
+        public Repository(IStartCompetingContext context)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();

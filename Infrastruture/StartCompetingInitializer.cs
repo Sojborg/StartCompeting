@@ -23,10 +23,10 @@ namespace Infrastruture
                 }
             };
 
-            users.ForEach(u => context.Users.Add(u));
+            users.ForEach(u => context.StartCompetingUsers.Add(u));
             context.SaveChanges();
 
-            var sojborgUser = context.Users.SingleOrDefault(u => u.Username == "Sojborg");
+            var sojborgUser = context.StartCompetingUsers.SingleOrDefault(u => u.Username == "Sojborg");
 
             var raceTypes = new List<RaceType>
             {

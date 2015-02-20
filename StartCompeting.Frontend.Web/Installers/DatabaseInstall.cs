@@ -9,7 +9,10 @@ namespace StartCompeting.Frontend.Web.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<StartCompetingContext>().LifestyleScoped());
+            container.Register(
+                Component.For<IStartCompetingContext>()
+                    .ImplementedBy<StartCompetingContext>()
+                    .LifestylePerWebRequest());
         }
     }
 }

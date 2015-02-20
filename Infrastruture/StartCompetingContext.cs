@@ -4,23 +4,19 @@ using System.Data.Entity;
 
 namespace Infrastruture
 {
-    public class StartCompetingContext : DbContext
+    public class StartCompetingContext : DbContext, IStartCompetingContext
     {
         public StartCompetingContext() : base("name=StartCompetingContext")
         {
             Database.SetInitializer(new StartCompetingInitializer());
         }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Configurations.Add(new UserMap());
-        //    modelBuilder.Configurations.Add(new RaceMap());
-        //    //modelBuilder.Configurations.Add(new UserRaceMap());
+        public new void SaveChanges()
+        {
+            base.SaveChanges();
+        }
 
-        //    base.OnModelCreating(modelBuilder);
-        //}
-
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> StartCompetingUsers { get; set; }
         public DbSet<Race> Race { get; set; }
         public DbSet<RaceType> RaceType { get; set; }
         public DbSet<Workout> Workout { get; set; }

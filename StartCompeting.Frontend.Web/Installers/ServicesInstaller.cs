@@ -13,16 +13,16 @@ namespace StartCompeting.Frontend.Web.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-                Component.For<IUserService>().ImplementedBy<UserService>(),
-                Component.For<IWorkoutService>().ImplementedBy<WorkoutService>(),
-                Component.For<IUserRepository>().ImplementedBy<UserRepository>(),
-                Component.For<IRepository<Race>>().ImplementedBy<Repository<Race>>(),
-                Component.For<IRepository<RaceType>>().ImplementedBy<Repository<RaceType>>(),
-                Component.For<IRepository<Workout>>().ImplementedBy<Repository<Workout>>(),
-                Component.For<IRaceTypeService>().ImplementedBy<RaceTypeService>(),
-                Component.For<IRaceService>().ImplementedBy<RaceService>(),
-                Component.For<ILeagueTypeService>().ImplementedBy<LeagueTypeService>(),
-                Component.For<ILeagueService>().ImplementedBy<LeagueService>()
+                Component.For<IUserService>().ImplementedBy<UserService>().LifestylePerWebRequest(),
+                Component.For<IWorkoutService>().ImplementedBy<WorkoutService>().LifestylePerWebRequest(),
+                Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifestylePerWebRequest(),
+                Component.For<IRepository<Race>>().ImplementedBy<Repository<Race>>().LifestylePerWebRequest(),
+                Component.For<IRepository<RaceType>>().ImplementedBy<Repository<RaceType>>().LifestylePerWebRequest(),
+                Component.For<IRepository<Workout>>().ImplementedBy<Repository<Workout>>().LifestylePerWebRequest(),
+                Component.For<IRaceTypeService>().ImplementedBy<RaceTypeService>().LifestylePerWebRequest(),
+                Component.For<IRaceService>().ImplementedBy<RaceService>().LifestylePerWebRequest(),
+                Component.For<ILeagueTypeService>().ImplementedBy<LeagueTypeService>().LifestylePerWebRequest(),
+                Component.For<ILeagueService>().ImplementedBy<LeagueService>().LifestylePerWebRequest()
                 );
         }
     }
