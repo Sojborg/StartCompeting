@@ -27,7 +27,6 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
 
         public IEnumerable<WorkoutViewModel> Get()
         {
-            throw new Exception("Ooops!");
             var workouts = _userService.GetUser(1).Workouts.Select(x => Map(x));
             return workouts;
         }

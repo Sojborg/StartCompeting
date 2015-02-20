@@ -36,3 +36,18 @@ app.config([
             });
     }
 ]);
+
+app.controller('HelloController', ['$scope', function ($scope) {
+    $scope.customer = {
+        name: 'Naomi',
+        address: '1600 Amphitheatre'
+    };
+}])
+
+app.directive('helloWorld', function() {
+    return {
+        restrict: 'AE',
+        replace: 'true',
+        templateUrl: 'Client/app/workout/hello.html'
+    };
+});
