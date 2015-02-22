@@ -1,7 +1,6 @@
 ﻿var app = angular.module('startCompetingApp', [
     "ngQuickDate",
-    "ngRoute",
-    "ui.bootstrap"
+    "ngRoute"
 ]);
 
 app.config([
@@ -12,9 +11,17 @@ app.config([
                 templateUrl: 'Client/app/workout/workout-list.html',
                 controller: 'WorkoutController'
             }).
+            when('/newworkout/:workoutId?', {
+                templateUrl: 'Client/app/workout/new-workout.html',
+                controller: 'NewWorkoutController'
+            }).
             when('/races', {
                 templateUrl: 'Client/app/race/race-list.html',
                 controller: 'RaceController'
+            }).
+            when('/newrace/:raceId?', {
+                templateUrl: 'Client/app/race/new-race.html',
+                controller: 'NewRaceController'
             }).
             when('/achievement', {
                 templateUrl: 'Client/app/race/achievement-list.html',
@@ -36,18 +43,3 @@ app.config([
             });
     }
 ]);
-
-app.controller('HelloController', ['$scope', function ($scope) {
-    $scope.customer = {
-        name: 'Naomi',
-        address: '1600 Amphitheatre'
-    };
-}])
-
-app.directive('helloWorld', function() {
-    return {
-        restrict: 'AE',
-        replace: 'true',
-        templateUrl: 'Client/app/workout/hello.html'
-    };
-});

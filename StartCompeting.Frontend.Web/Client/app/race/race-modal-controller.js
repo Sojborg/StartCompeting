@@ -1,4 +1,4 @@
-﻿app.controller('RaceModalCtrl', function($scope, $modalInstance, raceService, raceId) {
+﻿app.controller('NewRaceController', function($scope, raceService, $routeParams, $location) {
 
     $scope.formData = {
     };
@@ -37,16 +37,16 @@
     };
 
     $scope.resetWorkout = function () {
-        //$scope.workoutform.$setPristine();
-        $modalInstance.close();
+        $location.path('/races');
     }
 
+    var raceId = $routeParams.raceId;
     $scope.loadRaceTypes();
     if (raceId !== undefined && raceId != 0)
         $scope.loadRaceById(raceId);
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $location.path('/races');
     };
 
 });

@@ -1,4 +1,4 @@
-﻿app.controller('RaceController', function($scope, $http, $modal, raceService) {
+﻿app.controller('RaceController', function($scope, $http, raceService, $location) {
 
     loadRaces();
 
@@ -8,22 +8,22 @@
 
     $scope.open = function (raceId) {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'Client/app/race/race-modal.html',
-            controller: 'RaceModalCtrl',
-            size: '',
-            resolve: {
-                raceId: function () {
-                    return raceId;
-                }
-            }
-        });
+        //var modalInstance = $modal.open({
+        //    templateUrl: 'Client/app/race/race-modal.html',
+        //    controller: 'RaceModalCtrl',
+        //    size: '',
+        //    resolve: {
+        //        raceId: function () {
+        //            return raceId;
+        //        }
+        //    }
+        //});
 
-        modalInstance.result.then(function () {
-            loadRaces();
-        }, function () {
-            //$log.info('Modal dismissed at: ' + new Date());
-        });
+        //modalInstance.result.then(function () {
+        //    loadRaces();
+        //}, function () {
+        //    //$log.info('Modal dismissed at: ' + new Date());
+        //});
     };
 
     $scope.submit = function () {
@@ -36,6 +36,10 @@
     $scope.getRace = function (id) {
         loadRaceById(id);
     };
+
+    $scope.newRace = function () {
+        $location.path('/newrace');
+    }
 
     function loadRaces () {
         raceService.loadRaces().then(function (data) {
