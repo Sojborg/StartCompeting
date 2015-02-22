@@ -1,0 +1,27 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">New workout!</h3>
+</div>
+<div class="modal-body">
+    <form ng-submit="submit()" name="raceForm">
+
+        <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" name="name" ng-model="formData.name">
+        </div>
+
+        <div class="form-group">
+            <label>Selects</label>
+            <select ng-model="formData.raceTypeId" name="raceTypeId" class="form-control" ng-options="r.Id as r.Name for r in raceTypes"></select>
+        </div>
+
+        <div class="form-group">
+            <label>Race length (km)</label>
+            <input class="form-control workout-form-number-item" name="raceLength" ng-model="formData.raceLength">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn" ng-click="submit()">OK</button>
+    <button class="btn" ng-click="cancel()">Cancel</button>
+</div>
+
