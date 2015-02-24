@@ -1,6 +1,8 @@
 ﻿var app = angular.module('startCompetingApp', [
     "ngQuickDate",
-    "ngRoute"
+    "ngRoute",
+    "angular-loading-bar",
+    "ngAnimate"
 ]);
 
 app.config([
