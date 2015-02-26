@@ -1,5 +1,8 @@
 ﻿app.controller('WorkoutController', function($scope, $http, workoutService, $location) {
 
+    $scope.orderByField = 'start';
+    $scope.reverseSort = false;
+
     $scope.open = function (workoutId) {
         
         //var modalInstance = $modal.open({
