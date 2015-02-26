@@ -48,6 +48,7 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
                     race.Name = viewModel.Name;
                     race.RaceLength = viewModel.RaceLength;
                     race.RaceType = raceType;
+                    race.StartDate = DateTime.Now;
                     _raceService.SaveRace(race);            
 
                     return Request.CreateResponse(HttpStatusCode.OK);
