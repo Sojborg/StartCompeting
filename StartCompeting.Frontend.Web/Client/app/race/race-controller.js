@@ -6,6 +6,13 @@
 
     };
 
+    $scope.getters = {
+        Name: function (value) {
+            //this will sort by the length of the first name string
+            return value.Name.length;
+        }
+    }
+
     $scope.open = function (raceId) {
 
         //var modalInstance = $modal.open({
