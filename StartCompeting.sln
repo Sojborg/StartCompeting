@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastruture", "Infrastruture\Infrastruture.csproj", "{009A65BD-93C7-4F58-9DA2-5BC96DF221F6}"
 EndProject
@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2BD052
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartCompeting.Frontend.WindowsPhone", "StartCompeting.Frontend.WindowsPhone\StartCompeting.Frontend.WindowsPhone.csproj", "{42C48902-A4B1-4589-9061-D948708C53B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{EF5FC74A-F610-4750-A2D3-98FF9A79B0B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartCompeting.Tools.Import", "StartCompeting.Tools.Import\StartCompeting.Tools.Import.csproj", "{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +94,14 @@ Global
 		{42C48902-A4B1-4589-9061-D948708C53B6}.Release|x86.ActiveCfg = Release|x86
 		{42C48902-A4B1-4589-9061-D948708C53B6}.Release|x86.Build.0 = Release|x86
 		{42C48902-A4B1-4589-9061-D948708C53B6}.Release|x86.Deploy.0 = Release|x86
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +109,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{63D72A96-83A6-4617-AD69-6CF837488C43} = {701C52C6-B085-4E46-9B89-050537F093A4}
 		{DF082EE2-99F6-441F-A587-6DC5C16775C1} = {701C52C6-B085-4E46-9B89-050537F093A4}
+		{E0B5CF36-6079-42AD-AC60-F62EF886C3A4} = {EF5FC74A-F610-4750-A2D3-98FF9A79B0B6}
 	EndGlobalSection
 EndGlobal

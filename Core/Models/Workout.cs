@@ -34,5 +34,7 @@ namespace Core.Models
         public virtual User User { get; set; }
 
         public virtual Race Race { get; set; }
+
+        public virtual ICollection<WorkoutGpsCoord> GpsCoords { get; set; }
     }
 }
