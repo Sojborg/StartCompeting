@@ -1,27 +1,28 @@
 ﻿<div>
     <div>
+        <h1>Hej2</h1>
         <table st-table="workouts" class="table table-striped table-hover">
             <thead>
-                <tr>
-                    <th ng-click="orderByField='StartDateTime'; reverseSort = !reverseSort">
-                        Start <span ng-show="orderByField == 'StartDateTime'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                    </th>
-                    <th ng-click="orderByField='Length'; reverseSort = !reverseSort">
-                        Km <span ng-show="orderByField == 'Length'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                    </th>
-                    <th>Speed</th>
-                    <th>Duration</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th ng-click="orderByField='StartDateTime'; reverseSort = !reverseSort">
+                    Start <span ng-show="orderByField == 'StartDateTime'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </th>
+                <th ng-click="orderByField='Length'; reverseSort = !reverseSort">
+                    Km <span ng-show="orderByField == 'Length'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </th>
+                <th>Speed</th>
+                <th>Duration</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="w in workouts|orderBy:orderByField:reverseSort">
-                    <td>{{w.StartDateTime}}</td>
-                    <td>{{w.Length}}</td>
-                    <td>{{w.AvgSpeed}}</td>
-                    <td>{{w.ElapsedMinutes}}:{{w.ElapsedSeconds}}</td>
-                    <td><a href="/#newworkout/{{w.Id}}">Edit</a></td>
-                </tr>
+            <tr ng-repeat="w in workouts|orderBy:orderByField:reverseSort">
+                <td>{{w.StartDateTime}}</td>
+                <td>{{w.Length}}</td>
+                <td>{{w.AvgSpeed}}</td>
+                <td>{{w.ElapsedMinutes}}:{{w.ElapsedSeconds}}</td>
+                <td><a href="/#newworkout/{{w.Id}}">Edit</a></td>
+            </tr>
             </tbody>
         </table>
         <button class="btn" ng-click="newWorkout()">New</button>

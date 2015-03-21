@@ -194,12 +194,12 @@ namespace StartCompeting.Frontend.WindowsPhone.ViewModels
                 var heading = handler.CalculateBearing(new Position(previousPoint), new Position(coord));
                 StartCompetingMap.SetView(coord, StartCompetingMap.ZoomLevel, heading, MapAnimationKind.Parabolic);
 
-                ShellTile.ActiveTiles.First().Update(new IconicTileData()
-                {
-                    Title = "startCompeting",
-                    WideContent1 = string.Format("{0:f2} km", _kilometres),
-                    WideContent2 = string.Format("{0:f0} calories", _kilometres * 65),
-                });
+                //ShellTile.ActiveTiles.First().Update(new IconicTileData()
+                //{
+                //    Title = "startCompeting",
+                //    WideContent1 = string.Format("{0:f2} km", _kilometres),
+                //    WideContent2 = string.Format("{0:f0} calories", _kilometres * 65),
+                //});
             }
             else
             {
