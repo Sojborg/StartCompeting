@@ -38,7 +38,7 @@
                 formData.elapsedMinutes = data.ElapsedMinutes;
                 formData.elapsedSeconds = data.ElapsedSeconds;
                 formData.avgSpeed = data.AvgSpeed;
-                return formData;
+                return data;
             });
     }
 

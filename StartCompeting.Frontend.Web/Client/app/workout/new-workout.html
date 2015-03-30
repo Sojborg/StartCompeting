@@ -4,34 +4,34 @@
 
         <div class="form-group">
             <label>Description</label>
-            <input class="form-control new-workout-description" name="name" ng-model="formData.name">
+            <input class="form-control new-workout-description" name="name" ng-model="formData.Name">
         </div>
 
         <div class="form-group">
             <label>Dato</label>
-            <quick-datepicker ng-model='formData.startDateTime' date-format='dd-MM-yyyy' placeholder="Pick a date" disable-timepicker="true"></quick-datepicker>
+            <quick-datepicker ng-model='formData.StartDateTime' date-format='dd-MM-yyyy' placeholder="Pick a date" disable-timepicker="true"></quick-datepicker>
         </div>
 
         <div class="form-group">
             <label>Selects</label>
-            <select ng-model="formData.raceTypeId" name="raceTypeId" class="form-control form-control-select" ng-options="r.Id as r.Name for r in raceTypes"></select>
+            <select ng-model="formData.RaceTypeId" name="raceTypeId" class="form-control form-control-select" ng-options="r.Id as r.Name for r in raceTypes"></select>
         </div>
 
         <div class="form-group">
             <label>Race length (km)</label>
-            <input class="form-control form-control-number-field" name="length" ng-model="formData.length">
+            <input class="form-control form-control-number-field" name="length" ng-model="formData.Length">
         </div>
 
         <div class="form-group new-workout-duration">
             <label>Duration</label>
-            <input class="form-control item" placeholder="HH" name="elapsedHours" ng-model="formData.elapsedHours" />
-            <input class="form-control item" placeholder="MM" name="elapsedMinutes" ng-model="formData.elapsedMinutes" />
-            <input class="form-control item" placeholder="SS" name="elapsedSeconds" ng-model="formData.elapsedSeconds" />
+            <input class="form-control item" placeholder="HH" name="elapsedHours" ng-model="formData.ElapsedHours" />
+            <input class="form-control item" placeholder="MM" name="elapsedMinutes" ng-model="formData.ElapsedMinutes" />
+            <input class="form-control item" placeholder="SS" name="elapsedSeconds" ng-model="formData.ElapsedSeconds" />
         </div>
 
         <div class="form-group">
             <label>Avg speed (km/h)</label>
-            <input class="form-control form-control-number-field" name="avgSpeed" ng-model="formData.avgSpeed">
+            <input class="form-control form-control-number-field" name="avgSpeed" ng-model="formData.AvgSpeed">
         </div>
     </form>
 </div>
@@ -40,4 +40,4 @@
     <button class="btn" ng-click="cancel()">Cancel</button>
 </div>
 
-<div id="map" mapbox callback="callback" style="float: right;"></div>
+<div id="map" mapbox workout-id="{{workoutId}}" style="float: right;"></div>

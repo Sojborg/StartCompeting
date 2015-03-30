@@ -8,7 +8,11 @@ namespace Core.Models
     {
         public int Id { get; set; }
 
-        public DbGeography Location { get; set; }
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
+        public double Elevation { get; set; }
 
         public DateTime TimeStamp { get; set; }
     }

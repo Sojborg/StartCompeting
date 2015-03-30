@@ -40,7 +40,8 @@
 
     }
 
-    var workoutId = $routeParams.workoutId;
+    $scope.workoutId = $routeParams.workoutId;
+    var workoutId = $scope.workoutId;
     $scope.loadRaceTypes();
     if (workoutId !== undefined && workoutId != 0)
         $scope.getWorkout(workoutId);

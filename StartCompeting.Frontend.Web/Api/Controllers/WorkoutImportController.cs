@@ -60,11 +60,11 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
 
             foreach (var gpsCoord in workoutViewDto.GpsCoords)
             {
-                var point = string.Format("POINT({0} {1})", gpsCoord.Latitude.ToString().Replace('.', ','), gpsCoord.Longtitude.ToString().Replace('.', ','));
-                var dbgeography = DbGeography.FromText(point);
                 workoutEntity.GpsCoords.Add(new WorkoutGpsCoord
                 {
-                    Location = dbgeography,
+                    Latitude = gpsCoord.Latitude,
+                    Longitude = gpsCoord.Longtitude,
+                    Elevation = gpsCoord.Elevation,
                     TimeStamp = gpsCoord.Timestamp
                 });
             }

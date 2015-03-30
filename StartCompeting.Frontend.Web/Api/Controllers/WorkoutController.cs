@@ -122,9 +122,9 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
             {
                 viewModel.GpsCoords.Add(new GpsCoordViewModel
                 {
-                    Elevation = gpsCoord.Location.Elevation,
-                    Latitude = gpsCoord.Location.Latitude,
-                    Longtitude = gpsCoord.Location.Longitude,
+                    Elevation = gpsCoord.Elevation,
+                    Latitude = gpsCoord.Latitude,
+                    Longitude = gpsCoord.Longitude,
                     Timestamp = gpsCoord.TimeStamp
                 });
             }
