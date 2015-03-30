@@ -11,11 +11,6 @@ namespace Infrastruture
             Database.SetInitializer(new StartCompetingInitializer());
         }
 
-        public new void SaveChanges()
-        {
-            base.SaveChanges();
-        }
-
         public DbSet<User> StartCompetingUsers { get; set; }
         public DbSet<Race> Race { get; set; }
         public DbSet<RaceType> RaceType { get; set; }
@@ -24,5 +19,17 @@ namespace Infrastruture
         public DbSet<AchievementRequirement> AchievementRequirement { get; set; }
         public DbSet<League> League { get; set; }
         public DbSet<LeagueType> LeagueType { get; set; }
+        public DbSet<WorkoutGpsCoord> GpsCoords { get; set; }
+
+        public new void SaveChanges()
+        {
+            base.SaveChanges();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<WorkoutGpsCoord>().Property(x => x.Latitude).HasPrecision(3, 13);
+            //modelBuilder.Entity<WorkoutGpsCoord>().Property(x => x.Longtitude).HasPrecision(3, 13);
+        }
     }
 }

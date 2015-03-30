@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Data.Entity.Spatial;
+using Core.Interfaces;
 
 namespace Core.Models
 {
-    public class WorkoutGpsCoord
+    public class WorkoutGpsCoord : IEntity
     {
-        public decimal Longtitude { get; set; }
+        public int Id { get; set; }
 
-        public decimal Latitude { get; set; }
-
-        public decimal Elevation { get; set; }
+        public DbGeography Location { get; set; }
 
         public DateTime TimeStamp { get; set; }
     }

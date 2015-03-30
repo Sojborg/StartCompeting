@@ -9,6 +9,11 @@ namespace Core.Models
 {
     public class Workout : IEntity
     {
+        public Workout()
+        {
+            GpsCoords = new List<WorkoutGpsCoord>();
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
