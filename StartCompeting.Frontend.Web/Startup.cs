@@ -24,8 +24,8 @@ namespace StartCompeting.Frontend.Web
                 new ServicesInstaller(),
                 new WebApiControllerInstaller());
 
-            config.Services.Replace(typeof(IHttpControllerActivator), new WindsorCompositionRoot(WindsorContainer));
             config.Services.Add(typeof(IExceptionLogger), new Log4ExceptionLogger());
+            config.DependencyResolver = new WindsorResolver(WindsorContainer.Kernel);
 
             var logPath = config.VirtualPathRoot;
             log4net.Config.XmlConfigurator.Configure(new FileInfo("/log4net.config"));
