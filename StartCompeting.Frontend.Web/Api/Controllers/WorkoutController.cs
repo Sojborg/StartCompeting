@@ -117,6 +117,18 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
             viewModel.ElapsedMinutes = entity.ElapsedMinutes;
             viewModel.ElapsedSeconds = entity.ElapsedSeconds;
             viewModel.RaceTypeId = entity.RaceType.Id;
+
+            foreach (var gpsCoord in entity.GpsCoords)
+            {
+                viewModel.GpsCoords.Add(new GpsCoordViewModel
+                {
+                    Elevation = gpsCoord.Location.Elevation,
+                    Latitude = gpsCoord.Location.Latitude,
+                    Longtitude = gpsCoord.Location.Longitude,
+                    Timestamp = gpsCoord.TimeStamp
+                });
+            }
+
             return viewModel;
         }
     }

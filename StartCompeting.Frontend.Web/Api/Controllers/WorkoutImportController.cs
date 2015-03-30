@@ -3,10 +3,12 @@ using Core.Models;
 using StartCompeting.Frontend.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Core.Dtos;
 
 namespace StartCompeting.Frontend.Web.Api.Controllers
 {
@@ -23,7 +25,7 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
             _raceTypeService = raceTypeService;
         }
 
-        public HttpResponseMessage Post(WorkoutViewModel workoutViewModel)
+        public HttpResponseMessage Post(WorkoutDto workoutViewModel)
         {
             try
             {
@@ -40,21 +42,32 @@ namespace StartCompeting.Frontend.Web.Api.Controllers
             }
         }
 
-        private Workout MapToEntity(WorkoutViewModel workoutViewModel, Workout workoutEntity)
+        private Workout MapToEntity(WorkoutDto workoutViewDto, Workout workoutEntity)
         {
             var user = _userService.GetUser(1);
-            var raceType = _raceTypeService.GetRaceType(workoutViewModel.RaceTypeId);
+            var raceType = _raceTypeService.GetRaceType(workoutViewDto.RaceTypeId);
 
-            workoutEntity.Name = workoutViewModel.Name;
-            workoutEntity.Length = workoutViewModel.Length;
-            workoutEntity.AvgSpeed = workoutViewModel.AvgSpeed;
-            workoutEntity.StartDateTime = workoutViewModel.StartDateTime;
-            workoutEntity.EndDateTime = workoutViewModel.EndDateTime;
-            workoutEntity.ElapsedHours = workoutViewModel.ElapsedHours;
-            workoutEntity.ElapsedMinutes = workoutViewModel.ElapsedMinutes;
-            workoutEntity.ElapsedSeconds = workoutViewModel.ElapsedSeconds;
+            workoutEntity.Name = workoutViewDto.Name;
+            workoutEntity.Length = workoutViewDto.Length;
+            workoutEntity.AvgSpeed = workoutViewDto.AvgSpeed;
+            workoutEntity.StartDateTime = workoutViewDto.StartDateTime;
+            workoutEntity.EndDateTime = workoutViewDto.EndDateTime;
+            workoutEntity.ElapsedHours = workoutViewDto.ElapsedHours;
+            workoutEntity.ElapsedMinutes = workoutViewDto.ElapsedMinutes;
+            workoutEntity.ElapsedSeconds = workoutViewDto.ElapsedSeconds;
             workoutEntity.User = user;
             workoutEntity.RaceType = raceType;
+
+            foreach (var gpsCoord in workoutViewDto.GpsCoords)
+            {
+                var point = string.Format("POINT({0} {1})", gpsCoord.Latitude.ToString().Replace('.', ','), gpsCoord.Longtitude.ToString().Replace('.', ','));
+                var dbgeography = DbGeography.FromText(point);
+                workoutEntity.GpsCoords.Add(new WorkoutGpsCoord
+                {
+                    Location = dbgeography,
+                    TimeStamp = gpsCoord.Timestamp
+                });
+            }
 
             return workoutEntity;
         }
