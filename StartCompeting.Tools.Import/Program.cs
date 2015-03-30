@@ -1,10 +1,10 @@
 ﻿using Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 using System.Xml;
+using Core.Dtos;
+
 
 namespace StartCompeting.Tools.Import
 {
@@ -19,26 +19,39 @@ namespace StartCompeting.Tools.Import
             XmlNode nameNode = headNode.SelectSingleNode("trk/name");
             var gpsCoordsList = headNode.SelectNodes("trk/trkseg/trkpt");
 
+            var gpsCoordList = new List<GpsCoordDto>();
+
             foreach(XmlNode node in gpsCoordsList)
             {
-                var workoutGpsCoord = new WorkoutGpsCoord();
+                var workoutGpsCoord = new GpsCoordDto();
 
                 var coordTime = node.SelectSingleNode("time");
                 var convertedTime = Convert.ToDateTime(coordTime.InnerText);
-                workoutGpsCoord.TimeStamp = convertedTime;
+                workoutGpsCoord.Timestamp = convertedTime;
 
-                var elevation = node.Attributes.GetNamedItem("ele").Value;
-                var convertedEle = Convert.ToDecimal(elevation.Replace('.', ','));
+                var elevation = node.SelectSingleNode("ele");
+                var convertedEle = Convert.ToDouble(elevation.InnerText.Replace('.', ','));
                 workoutGpsCoord.Elevation = convertedEle;
 
                 var longtitude = node.Attributes.GetNamedItem("lon").Value;
-                var convertedLong = Convert.ToDecimal(longtitude.Replace('.', ','));
+                var convertedLong = Convert.ToDouble(longtitude.Replace('.', ','));
                 workoutGpsCoord.Longtitude = convertedLong;
 
                 var latitude = node.Attributes.GetNamedItem("lat").Value;
-                var convertedLat = Convert.ToDecimal(latitude.Replace('.', ','));
+                var convertedLat = Convert.ToDouble(latitude.Replace('.', ','));
                 workoutGpsCoord.Latitude = convertedLat;
+
+                gpsCoordList.Add(workoutGpsCoord);
             }
+
+            var workout = new WorkoutDto();
+            workout.Name = nameNode.InnerText;
+            workout.StartDateTime = DateTime.Now;
+            workout.EndDateTime = DateTime.Now.AddMinutes(30);
+            workout.GpsCoords = gpsCoordList;
+
+            var client = new HttpClient();
+            var response = client.PostAsJsonAsync("http://localhost:60571/api/workoutimport", workout).Result;
 
             Console.WriteLine("doc name: " + nameNode.InnerText);
 
