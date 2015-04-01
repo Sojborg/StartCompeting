@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 using Core.Interfaces;
 
@@ -15,5 +16,10 @@ namespace Core.Models
         public double Elevation { get; set; }
 
         public DateTime TimeStamp { get; set; }
+
+        public int WorkoutId { get; set; }
+
+        [ForeignKey("WorkoutId")]
+        public Workout Workout { get; set; }
     }
 }
