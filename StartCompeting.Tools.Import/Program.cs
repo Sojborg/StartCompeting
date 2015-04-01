@@ -49,6 +49,7 @@ namespace StartCompeting.Tools.Import
             workout.StartDateTime = DateTime.Now;
             workout.EndDateTime = DateTime.Now.AddMinutes(30);
             workout.GpsCoords = gpsCoordList;
+            workout.RaceTypeId = 1;
 
             var client = new HttpClient();
             var response = client.PostAsJsonAsync("http://localhost:60571/api/workoutimport", workout).Result;
