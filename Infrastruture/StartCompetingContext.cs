@@ -1,4 +1,5 @@
-﻿using Core.Models;
+﻿using System;
+using Core.Models;
 using Infrastruture.Mapping;
 using System.Data.Entity;
 
