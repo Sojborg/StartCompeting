@@ -11,10 +11,12 @@ namespace StartCompeting.Frontend.Web.Plumping
     public class WindsorResolver : IDependencyResolver
     {
         private readonly IKernel kernel;
+        private IDisposable disposable;
 
         public WindsorResolver(IKernel kernel)
         {
             this.kernel = kernel;
+            disposable = kernel;
         }
  
         public IDependencyScope BeginScope()
@@ -34,6 +36,7 @@ namespace StartCompeting.Frontend.Web.Plumping
  
         public void Dispose()
         {
+            disposable.Dispose();
         }
     }
 }
