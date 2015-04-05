@@ -42,6 +42,8 @@
 
     $scope.workoutId = $routeParams.workoutId;
     var workoutId = $scope.workoutId;
+
+    $scope.gpsCoords = workoutService.loadWorkoutByIdP(workoutId);
     $scope.loadRaceTypes();
     if (workoutId !== undefined && workoutId != 0)
         $scope.getWorkout(workoutId);

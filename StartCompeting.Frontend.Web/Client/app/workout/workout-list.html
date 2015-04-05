@@ -17,11 +17,11 @@
             </thead>
             <tbody>
             <tr ng-repeat="w in workouts|orderBy:orderByField:reverseSort">
-                <td>{{w.StartDateTime}}</td>
-                <td>{{w.Length}}</td>
-                <td>{{w.AvgSpeed}}</td>
-                <td>{{w.ElapsedMinutes}}:{{w.ElapsedSeconds}}</td>
-                <td><a href="/#newworkout/{{w.Id}}">Edit</a></td>
+                <td>{{w.startDateTime}}</td>
+                <td>{{w.length}}</td>
+                <td>{{w.avgSpeed}}</td>
+                <td>{{w.elapsedMinutes}}:{{w.elapsedSeconds}}</td>
+                <td><a href="/#newworkout/{{w.id}}">Edit</a></td>
             </tr>
             </tbody>
         </table>

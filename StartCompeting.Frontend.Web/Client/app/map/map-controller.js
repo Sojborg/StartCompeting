@@ -9,12 +9,12 @@ function mapController($scope) {
 
 
 app.directive('mapbox', ['workoutService',
-    function (workoutService) {
+    function () {
         return {
             restrict: 'EA',
             replace: true,
             scope: {
-                callback: "="
+                coords: "="
             },
             template: '<div></div>',
             link: function (scope, element, attributes) {
@@ -26,26 +26,25 @@ app.directive('mapbox', ['workoutService',
 
                 var polyline = L.polyline([]).addTo(map);
 
-                var startLocation = [];
-                workoutService.loadWorkoutById(id).then(function (data) {
-                    var gpsCoords = data.GpsCoords;
+                scope.coords.then(function (reply) {
+                    var gpsCoords = reply.data.gpsCoords;
 
-                    for (var i = 0; i < gpsCoords.length; i++) {
-                        var lat = gpsCoords[i].Latitude;
-                        var long = gpsCoords[i].Longitude;
+                    if (gpsCoords.length > 0) {
+                        var startLocation = [gpsCoords[0].latitude, gpsCoords[1].longitude];
 
-                        if (i == 0) {
-                            startLocation = [lat, long];
+                        for (var i = 0; i < gpsCoords.length; i++) {
+                            var lat = gpsCoords[i].latitude;
+                            var long = gpsCoords[i].longitude;
+
+                            polyline.addLatLng(
+                                L.latLng(
+                                    lat,
+                                    long
+                                ));
                         }
 
-                        polyline.addLatLng(
-                        L.latLng(
-                           lat,
-                           long
-                        ));
+                        map.setView(startLocation, 14);
                     }
-
-                    map.setView(startLocation, 14);
                 });
             }
         };

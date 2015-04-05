@@ -6,6 +6,7 @@
         loadWorkouts: loadWorkouts,
         loadRaceTypes: loadRaceTypes,
         loadWorkoutById: loadWorkoutById,
+        loadWorkoutByIdP: loadWorkoutByIdP,
         createWorkout: createWorkout,
         updateWorkout: updateWorkout
     };
@@ -27,19 +28,13 @@
     function loadWorkoutById(id) {
         return $http.get(apiPath + "?workoutId=" + id)
             .then(function(reply) {
-                var data = reply.data;
-                var formData = {};
-                formData.id = data.Id;
-                formData.name = data.Name;
-                formData.startDateTime = data.StartDateTime
-                formData.raceTypeId = data.RaceTypeId;
-                formData.length = data.Length;
-                formData.elapsedHours = data.ElapsedHours;
-                formData.elapsedMinutes = data.ElapsedMinutes;
-                formData.elapsedSeconds = data.ElapsedSeconds;
-                formData.avgSpeed = data.AvgSpeed;
-                return data;
+                return reply.data;
             });
+    }
+
+    function loadWorkoutByIdP(id) {
+        var promise = $http.get(apiPath + "?workoutId=" + id);
+        return promise;
     }
 
     function createWorkout(formData) {

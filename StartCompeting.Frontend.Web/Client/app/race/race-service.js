@@ -27,13 +27,7 @@
     function loadRaceById(id) {
         return $http.get(apiPath + "?id=" + id)
             .then(function(reply) {
-                var data = reply.data;
-                var formData = {};
-                formData.id = data.Id;
-                formData.name = data.Name;
-                formData.raceTypeId = data.RaceTypeId;
-                formData.raceLength = data.RaceLength;
-                return formData;
+                return reply.data;
             });
     }
 
