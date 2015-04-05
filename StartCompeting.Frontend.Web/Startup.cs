@@ -4,6 +4,8 @@ using System.Web.Http.Dispatcher;
 using System.Web.Http.ExceptionHandling;
 using Castle.Windsor;
 using Microsoft.Owin;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Owin;
 using StartCompeting.Frontend.Web.App_Start;
 using StartCompeting.Frontend.Web.Installers;
@@ -29,6 +31,9 @@ namespace StartCompeting.Frontend.Web
 
             var logPath = config.VirtualPathRoot;
             log4net.Config.XmlConfigurator.Configure(new FileInfo("/log4net.config"));
+
+            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             
             WebApiConfig.Register(config);
             app.UseWebApi(config);
