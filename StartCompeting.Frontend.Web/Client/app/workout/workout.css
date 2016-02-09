@@ -3,5 +3,8 @@
 .new-workout .new-workout-duration .item {
   display: inline-block;
   width: 30px; }
+.new-workout-content {
+        float:left;
+    }
 
 /*# sourceMappingURL=workout.css.map */

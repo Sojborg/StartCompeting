@@ -2,7 +2,8 @@
     "ngQuickDate",
     "ngRoute",
     "angular-loading-bar",
-    "ngAnimate"
+    "ngAnimate",
+    "ngMaterial"
 ]);
 
 app.config([

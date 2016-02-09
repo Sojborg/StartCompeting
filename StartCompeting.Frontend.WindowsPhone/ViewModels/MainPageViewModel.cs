@@ -216,8 +216,7 @@ namespace StartCompeting.Frontend.WindowsPhone.ViewModels
             Geolocator myGeolocator = new Geolocator();
             Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
             Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            GeoCoordinate myGeoCoordinate =
-            CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+            GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
 
             // Make my current location the center of the Map.
             StartCompetingMap.Center = myGeoCoordinate;

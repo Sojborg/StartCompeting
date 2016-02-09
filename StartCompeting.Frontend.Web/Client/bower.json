@@ -28,6 +28,7 @@
     "angular-smart-table": "~1.4.12",
     "requirejs": "~2.1.16",
     "angular-datatables": "~0.4.0",
-    "mapbox.js": "~2.1.6"
+    "mapbox.js": "~2.1.6",
+    "angular-material": "~1.0.5"
   }
 }

@@ -22,7 +22,7 @@ namespace StartCompeting.Frontend.WindowsPhone.Services
             wc.Headers[HttpRequestHeader.Accept] = "application/json";
             wc.Headers[HttpRequestHeader.ContentType] = "application/json";
             wc.UploadStringAsync(uri, "POST", json);
-
+            
         }
 
         private void webClient_SaveWorkoutCompleted(object sender, UploadStringCompletedEventArgs e)
