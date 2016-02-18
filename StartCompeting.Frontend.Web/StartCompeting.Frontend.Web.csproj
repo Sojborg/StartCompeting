@@ -297,6 +297,9 @@
     <Content Include="Client\app\race\race-modal-controller.js" />
     <Content Include="Client\app\race\new-race.html" />
     <Content Include="Client\app\race\race-service.js" />
+    <Content Include="Client\app\widgets\temperature\temperature.css" />
+    <Content Include="Client\app\widgets\temperature\temperature.directive.js" />
+    <Content Include="Client\app\widgets\temperature\temperature.template.html" />
     <Content Include="Client\app\workout\hello.html" />
     <Content Include="Client\app\workout\new-workout-controller.js" />
     <Content Include="Client\app\workout\new-workout.html" />
@@ -314,6 +317,19 @@
     <Content Include="Client\bower_components\angular-aria\angular-aria.js" />
     <Content Include="Client\bower_components\angular-aria\angular-aria.min.js" />
     <Content Include="Client\bower_components\angular-aria\index.js" />
+    <Content Include="Client\bower_components\angular-gridster\demo\common\style.css" />
+    <Content Include="Client\bower_components\angular-gridster\demo\dashboard\script.js" />
+    <Content Include="Client\bower_components\angular-gridster\demo\dashboard\style.css" />
+    <Content Include="Client\bower_components\angular-gridster\demo\dashboard\view.html" />
+    <Content Include="Client\bower_components\angular-gridster\demo\dashboard\widget_settings.html" />
+    <Content Include="Client\bower_components\angular-gridster\demo\main\script.js" />
+    <Content Include="Client\bower_components\angular-gridster\demo\main\style.css" />
+    <Content Include="Client\bower_components\angular-gridster\demo\main\view.html" />
+    <Content Include="Client\bower_components\angular-gridster\dist\angular-gridster.min.css" />
+    <Content Include="Client\bower_components\angular-gridster\dist\angular-gridster.min.js" />
+    <Content Include="Client\bower_components\angular-gridster\index.html" />
+    <Content Include="Client\bower_components\angular-gridster\src\angular-gridster.js" />
+    <Content Include="Client\bower_components\angular-gridster\test.html" />
     <Content Include="Client\bower_components\angular-loading-bar\build\loading-bar.css" />
     <Content Include="Client\bower_components\angular-loading-bar\build\loading-bar.js" />
     <Content Include="Client\bower_components\angular-loading-bar\build\loading-bar.min.css" />
@@ -790,6 +806,13 @@
     <Content Include="Client\bower_components\angular-messages\index.js" />
     <Content Include="Client\bower_components\angular-smart-table\dist\smart-table.min.js" />
     <Content Include="Client\bower_components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\detect-element-resize.js" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\jquery.resize.js" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\tests\tests-javascript.html" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\tests\tests-javascript.js" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\tests\tests-jquery.html" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\tests\tests-jquery.js" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\tests\tests.css" />
     <Content Include="Client\bower_components\mapbox.js\mapbox.js" />
     <Content Include="Client\content\site1.css">
       <DependentUpon>site1.scss</DependentUpon>
@@ -797,6 +820,12 @@
     <Content Include="Client\content\site1.min.css">
       <DependentUpon>site1.css</DependentUpon>
     </Content>
+    <Content Include="Client\ext-modules\dashboard\dashboard.css" />
+    <Content Include="Client\ext-modules\dashboard\dashboard.directive.js" />
+    <Content Include="Client\ext-modules\dashboard\dashboard.module.js" />
+    <Content Include="Client\ext-modules\dashboard\dashboard.template.html" />
+    <Content Include="Client\ext-modules\dashboard\widget.body.directive.js" />
+    <Content Include="Client\ext-modules\dashboard\widget.body.template.html" />
     <Content Include="index.html" />
     <Content Include="Client\app\workout\workout-list.html" />
     <Content Include="Client\bower_components\angular-cookies\angular-cookies.js" />
@@ -1172,6 +1201,21 @@
     <Content Include="Client\bower_components\angular-messages\bower.json" />
     <Content Include="Client\bower_components\angular-messages\package.json" />
     <Content Include="Client\bower_components\angular-messages\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\bower_components\angular-gridster\.bower.json" />
+    <Content Include="Client\bower_components\angular-gridster\.jsbeautifyrc" />
+    <Content Include="Client\bower_components\angular-gridster\bower.json" />
+    <Content Include="Client\bower_components\angular-gridster\LICENSE" />
+    <Content Include="Client\bower_components\angular-gridster\README.md" />
+    <Content Include="Client\bower_components\angular-gridster\src\angular-gridster.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\bower_components\javascript-detect-element-resize\.bower.json" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\bower.json" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\LICENSE" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\package.json" />
+    <Content Include="Client\bower_components\javascript-detect-element-resize\README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
