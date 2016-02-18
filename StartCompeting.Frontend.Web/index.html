@@ -20,6 +20,9 @@
     <script src="Client/bower_components/mapbox.js/mapbox.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet'/>
     <link rel="stylesheet" href="Client/bower_components/angular-material/angular-material.css">
+    <link href="Client/bower_components/angular-gridster/dist/angular-gridster.min.css" rel="stylesheet" />
+    <link href="Client/ext-modules/dashboard/dashboard.css" rel="stylesheet" />
+    <link href="Client/app/widgets/temperature/temperature.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
@@ -52,6 +55,16 @@
         <script src="Client/bower_components/angular-material/angular-material.min.js"></script>
         <script src="Client/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
         <script src="Client/bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+
+
+        <script src="Client/bower_components/ngQuickDate/dist/ng-quick-date.min.js"></script>
+        <script src="Client/bower_components/javascript-detect-element-resize/detect-element-resize.js"></script>
+        <script src="Client/bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
+
+        <script src="Client/ext-modules/dashboard/dashboard.module.js"></script>
+        <script src="Client/ext-modules/dashboard/dashboard.directive.js"></script>
+        <script src="Client/ext-modules/dashboard/widget.body.directive.js"></script>
+
         <script src="Client/app/app.js"></script>
         <script src="Client/app/home/home-controller.js"></script>
         <script src="Client/app/workout/workout-service.js"></script>
@@ -67,7 +80,8 @@
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-        <script src="Client/bower_components/ngQuickDate/dist/ng-quick-date.min.js"></script>
+
+        <script src="Client/app/widgets/temperature/temperature.directive.js"></script>
     </div>
 </body>
 </html>

@@ -3,7 +3,8 @@
     "ngRoute",
     "angular-loading-bar",
     "ngAnimate",
-    "ngMaterial"
+    "ngMaterial",
+    "dashboard"
 ]);
 
 app.config([
@@ -39,8 +40,7 @@ app.config([
                 controller: 'MapController'
             }).
             when('/', {
-                templateUrl: 'Client/app/home/home.html',
-                controller: 'HomeController'
+                template: '<home-controller></home-controller>',
             }).
             otherwise({
                 redirectTo: '/'
