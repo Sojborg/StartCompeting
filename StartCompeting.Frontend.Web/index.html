@@ -10,19 +10,27 @@
     <link href="Client/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="Client/bower_components/ngQuickDate/dist/ng-quick-date.css" rel="stylesheet" />
     <link href="Client/bower_components/ngQuickDate/dist/ng-quick-date-default-theme.css" rel="stylesheet" />
-    <link href="Client/content/startcompeting.css" rel="stylesheet" />
-    <link href="Client/content/site1.css" rel="stylesheet" />
-    <link href="Client/app/workout/workout.css" rel="stylesheet"/>
-    <link href="Client/app/map/map.css" rel="stylesheet" />
     <link href="Client/bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
+    <link href="Client/bower_components/angular-gridster/dist/angular-gridster.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="Client/bower_components/angular-material/angular-material.css">
+    <script src="Client/bower_components/mapbox.js/mapbox.js"></script>
+
+    <!-- External modules -->
+    <link href="Client/ext-modules/dashboard/dashboard.css" rel="stylesheet" />
+
+    <!-- Core -->
+    <link href="Client/content/startcompeting.css" rel="stylesheet" />
+
+    <!-- features -->
+    <link href="Client/app/workout/workout.css" rel="stylesheet"/>
+    <link href="Client/app/map/map.css" rel="stylesheet"/>
+
+    <!-- Widgets -->
+    <link href="Client/app/widgets/current-users-position/current.users.position.css" rel="stylesheet" />
+
     <!-- Page Specific CSS -->
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
-    <script src="Client/bower_components/mapbox.js/mapbox.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="Client/bower_components/angular-material/angular-material.css">
-    <link href="Client/bower_components/angular-gridster/dist/angular-gridster.min.css" rel="stylesheet" />
-    <link href="Client/ext-modules/dashboard/dashboard.css" rel="stylesheet" />
-    <link href="Client/app/widgets/temperature/temperature.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
@@ -30,14 +38,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div>
                 <ul>
-                    <li class="active"><a href="/">Dashboard</a></li>
-                    <li><a href="/#races">Races</a></li>
-                    <li><a href="/#workouts">Workouts</a></li>
-                    <li><a href="/#leagues">League</a></li>
+                    <li class="active"><a href="/#/" title="Dashboard"><i class="fa fa-dashboard fa-2x navbar-icon"></i></a></li>
+                    <li><a href="/#races" title="Races"><i class="fa fa-child fa-2x navbar-icon"></i></a></li>
+                    <li><a href="/#workouts" title="Workouts"><i class="fa fa-history fa-2x navbar-icon"></i></a></li>
+                    <li><a href="/#leagues" title="Leagues"><i class="fa fa-list-ol fa-2x navbar-icon"></i></a></li>
                 </ul>
             </div>
         </nav>
-        <div id="page-wrapper">
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="side-navbar">
+                <ul>
+                    <li><i class="fa fa-bars fa-2x side-navbar-icon"></i></li>
+                    <li><i class="fa fa-user fa-2x side-navbar-icon"></i></li>
+                </ul>
+            </div>
             <div class="content-wrapper main-content clear-fix" ng-view>
             </div>
         </div>
@@ -48,23 +62,28 @@
         </footer>
 
         <!-- JavaScript -->
+        <script src="Client/bower_components/lodash/dist/lodash.min.js"></script>
+        <script src="Client/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="Client/bower_components/jquery-resize/jquery.ba-resize.js"></script>
         <script src="Client/bower_components/angular/angular.min.js"></script>
+        <script src="Client/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+        <script src="Client/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
         <script src="Client/bower_components/angular-route/angular-route.min.js"></script>
         <script src="Client/bower_components/angular-aria/angular-aria.min.js"></script>
         <script src="Client/bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="Client/bower_components/angular-material/angular-material.min.js"></script>
         <script src="Client/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
         <script src="Client/bower_components/angular-smart-table/dist/smart-table.min.js"></script>
-
-
         <script src="Client/bower_components/ngQuickDate/dist/ng-quick-date.min.js"></script>
         <script src="Client/bower_components/javascript-detect-element-resize/detect-element-resize.js"></script>
         <script src="Client/bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
 
+        <!-- external modules -->
         <script src="Client/ext-modules/dashboard/dashboard.module.js"></script>
         <script src="Client/ext-modules/dashboard/dashboard.directive.js"></script>
         <script src="Client/ext-modules/dashboard/widget.body.directive.js"></script>
 
+        <!-- features -->
         <script src="Client/app/app.js"></script>
         <script src="Client/app/home/home-controller.js"></script>
         <script src="Client/app/workout/workout-service.js"></script>
@@ -73,15 +92,15 @@
         <script src="Client/app/race/race-controller.js"></script>
         <script src="Client/app/race/race-service.js"></script>
         <script src="Client/app/race/race-modal-controller.js"></script>
-
         <script src="Client/app/map/map-controller.js"></script>
-        <script src="Client/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- widgets -->
+        <script src="Client/app/widgets/current-users-position/current.users.position.directive.js"></script>
 
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-
-        <script src="Client/app/widgets/temperature/temperature.directive.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEV56TilYjegUmASOMBCu-MoGo_DXY-LE"></script>
     </div>
 </body>
 </html>
