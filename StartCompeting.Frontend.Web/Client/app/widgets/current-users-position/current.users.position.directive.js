@@ -19,7 +19,6 @@ app.directive('currentUsersPosition',
                     });
 
                     var marker = new google.maps.Marker({
-                        icon: "https://chart.googleapis.com/chart?chst=d_bubble_icon_text_small&chld=bus|bbT|9|FF6450|eee",
                         position: new google.maps.LatLng(56.166, 10.216),
                         optimized: true,
                         map: scope.map

@@ -1,21 +1,34 @@
-﻿<div class="widget-workout-preview-content">
-    <h3>Lastest workout</h3>
-    <div class="workout-preview-header">
-        <div class="workout-preview-header-icon">{{workout.raceTypeId}}</div>
-        <div class="workout-preview-header-title">{{workout.name}}</div>
+﻿<div class="widget-workout-preview">
+    <div class="widget-workout-preview-content">
+        <h3>Lastest workout</h3>
+        <div class="workout-preview-header">
+            <div class="workout-preview-header-icon"><i class="fa fa-2x" ng-class="getTypeIcon(workout.raceTypeId)"></i></div>
+            <div class="workout-preview-header-title">{{workout.name}}</div>
+        </div>
+        <div class="workout-preview-details">
+            <div class="workout-preview-details-item">
+                <div class="workout-preview-details-data">{{workout.length}}</div>
+                <div class="workout-preview-details-label">Length</div>
+            </div>
+            <div class="workout-preview-details-item">
+                <div class="workout-preview-details-data">{{workout.avgSpeed}}</div>
+                <div class="workout-preview-details-label">Avg. speed</div>
+            </div>
+            <div class="workout-preview-details-item">
+                <div class="workout-preview-details-ata">{{workout.elapsedHours}}:{{workout.elapsedMinutes}}</div>
+                <div class="workout-preview-details-label">Duration</div>
+            </div>
+        </div>
     </div>
-    <div class="workout-preview-details">
-        <div class="workout-preview-details-item">
-            <div class="workout-preview-details-data">{{workout.length}}</div>
-            <div class="workout-preview-details-label">Length</div>
+    <div class="widget-footer">
+        <div class="widget-pagination">
+            <div class="page-previous" ng-click="previousPage()">
+                <i class="fa fa-angle-left icon"></i>
+            </div>
+            <div class="page-next" ng-click="nextPage()">
+                <i class="fa fa-angle-right icon"></i>
+            </div>
         </div>
-        <div class="workout-preview-details-item">
-            <div class="workout-preview-details-data">{{workout.avgSpeed}}</div>
-            <div class="workout-preview-details-label">Avg. speed</div>
-        </div>
-        <div class="workout-preview-details-item">
-            <div class="workout-preview-details-ata">{{workout.elapsedHours}}:{{workout.elapsedMinutes}}</div>
-            <div class="workout-preview-details-label">Duration</div>
-        </div>
+        <div class="widget-date">{{workout.startDateTime}}</div>
     </div>
 </div>

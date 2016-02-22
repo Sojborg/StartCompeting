@@ -1,5 +1,12 @@
-﻿.widget-workout-preview-content {
+﻿.widget-workout-preview {
+    display: flex; 
+    flex-direction: column;
+    height: 100%;
+}
+
+.widget-workout-preview-content {
     padding: 5px;
+    flex: 1;
 }
 
     .widget-workout-preview-content .workout-preview-header {
@@ -33,3 +40,34 @@
                 font-size: 12px;
                 color: gray;
             }
+
+.widget-footer {
+    display: flex;
+    background-color: lightskyblue;
+    line-height: 30px;
+}
+
+.widget-pagination {
+    margin-left: 20px;
+    flex: 1;
+    display: flex;
+}
+
+    .widget-pagination .page-previous {
+        flex: 1;
+    }
+
+    .widget-pagination .page-next {
+        flex: 1;
+    }
+
+    .widget-pagination .icon {
+        color: white;
+        cursor: pointer;
+    }
+
+.widget-date {
+    flex: 4;
+    color: white;
+    font-size: 12px;
+}
