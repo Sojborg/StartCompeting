@@ -16,5 +16,9 @@
         $location.path('/newworkout');
     }
 
+    $scope.onReorder = function (order) {
+        getDesserts(angular.extend({}, $scope.query, { order: order }));
+    };
+
     $scope.loadWorkouts();
 });

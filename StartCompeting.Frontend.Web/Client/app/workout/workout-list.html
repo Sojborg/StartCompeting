@@ -1,30 +1,29 @@
 ﻿<div>
     <div>
-        <h1>Hej2</h1>
-        <table st-table="workouts" class="table table-striped table-hover">
-            <thead>
-            <tr>
-                <th ng-click="orderByField='StartDateTime'; reverseSort = !reverseSort">
-                    Start <span ng-show="orderByField == 'StartDateTime'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                </th>
-                <th ng-click="orderByField='Length'; reverseSort = !reverseSort">
-                    Km <span ng-show="orderByField == 'Length'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-                </th>
-                <th>Speed</th>
-                <th>Duration</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="w in workouts|orderBy:orderByField:reverseSort">
-                <td>{{w.startDateTime}}</td>
-                <td>{{w.length}}</td>
-                <td>{{w.avgSpeed}}</td>
-                <td>{{w.elapsedMinutes}}:{{w.elapsedSeconds}}</td>
-                <td><a href="/#newworkout/{{w.id}}">Edit</a></td>
-            </tr>
-            </tbody>
-        </table>
-        <button class="btn" ng-click="newWorkout()">New</button>
+        <md-button class="md-raised md-primary new-item-button" ng-click="newWorkout()">New</md-button>
+
+        <!-- exact table from live demo -->
+        <md-table-container>
+            <table md-table md-row-select ng-model="selected">
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column md-order-by="nameToLower">Start</th>
+                        <th md-column md-numeric md-order-by="calories.value">Km</th>
+                        <th md-column>Speed</th>
+                        <th md-column>Duration</th>
+                        <th md-column md-numeric></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-select="dessert" md-select-id="{{workout.name}}" md-auto-select ng-repeat="workout in workouts">
+                        <td md-cell>{{workout.startDateTime}}</td>
+                        <td md-cell>{{workout.length}}</td>
+                        <td md-cell>{{workout.avgSpeed}}</td>
+                        <td md-cell>{{workout.elapsedMinutes}}:{{workout.elapsedSeconds}}</td>
+                        <td md-cell><a href="/#newworkout/{{workout.id}}">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
     </div>
 </div>

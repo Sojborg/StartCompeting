@@ -5,7 +5,8 @@
     "ngAnimate",
     "ngMaterial",
     "dashboard",
-    "uiGmapgoogle-maps"
+    "uiGmapgoogle-maps",
+    "md.data.table"
 ]);
 
 app.config([

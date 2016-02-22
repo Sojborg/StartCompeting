@@ -1,25 +1,28 @@
 ﻿<div class="row">
     <div class="col-lg-6">
-        <h3>test 2</h3>
-        <table st-table="races" class="table table-striped table-hover tablesorter">
-            <thead>
-                <tr>
-                    <th st-sort="Name">Name2</th>
-                    <th st-sort="RaceTypeId">Type <i class="fa fa-sort"></i></th>
-                    <th st-sort="RaceLength">Length <i class="fa fa-sort"></i></th>
-                    <th class="header"> <i class="fa fa-sort"></i></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="r in races">
-                    <td>{{r.Name}}</td>
-                    <td>{{r.RaceTypeId}}</td>
-                    <td>{{r.RaceLength}}</td>
-                    <td><a href="/#newrace/{{r.Id}}">Edit</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- Button trigger modal -->
-        <button class="btn" ng-click="newRace()">New</button>
+
+        <md-button class="md-raised md-primary new-item-button" ng-click="newRace()">New</md-button>
+
+        <!-- exact table from live demo -->
+        <md-table-container>
+            <table md-table md-row-select ng-model="selected">
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column md-order-by="nameToLower">Name</th>
+                        <th md-column>Type</th>
+                        <th md-column>Length</th>
+                        <th md-column md-numeric></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-select="dessert" md-select-id="{{race.name}}" md-auto-select ng-repeat="race in races">
+                        <td md-cell>{{race.name}}</td>
+                        <td md-cell>{{race.raceTypeId}}</td>
+                        <td md-cell>{{race.raceLength}}</td>
+                        <td md-cell><a href="/#newrace/{{race.id}}">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
     </div>
 </div>
