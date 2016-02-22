@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-app.directive('temperature',
+app.directive('currentUsersPosition',
     [
     function () {
         return {
