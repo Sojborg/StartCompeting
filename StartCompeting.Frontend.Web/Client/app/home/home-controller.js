@@ -27,8 +27,8 @@
                 {
                     title: 'Latest work',
                     settings: {
-                        sizeX: 3,
-                        sizeY: 3,
+                        sizeX: 2,
+                        sizeY: 2,
                         minSizeX: 2,
                         minSizeY: 2,
                         template: '<workout-preview></workout-preview>'
@@ -40,12 +40,12 @@
                 {
                     sizeX: 3,
                     sizeY: 3,
-                    minSizeX: 2,
+                    minSizeX: 5,
                     minSizeY: 2,
                     template: '<current-users-position></current-users-position>'
                 },
                 {
-                    sizeX: 3,
+                    sizeX: 2,
                     sizeY: 3,
                     minSizeX: 2,
                     minSizeY: 2,
