@@ -23,6 +23,16 @@
                         minSizeY: 2,
                         template: '<current-users-position></current-users-position>'
                     }
+                },
+                {
+                    title: 'Latest work',
+                    settings: {
+                        sizeX: 3,
+                        sizeY: 3,
+                        minSizeX: 2,
+                        minSizeY: 2,
+                        template: '<workout-preview></workout-preview>'
+                    }
                 }
             ];
 
@@ -32,7 +42,14 @@
                     sizeY: 3,
                     minSizeX: 2,
                     minSizeY: 2,
-                    template: '<current-users-position></current-users-position>',
+                    template: '<current-users-position></current-users-position>'
+                },
+                {
+                    sizeX: 3,
+                    sizeY: 3,
+                    minSizeX: 2,
+                    minSizeY: 2,
+                    template: '<workout-preview></workout-preview>'
                 }
             ];
         }
