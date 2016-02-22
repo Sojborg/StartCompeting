@@ -1,8 +1,21 @@
-﻿<div class="widget-map-content">
+﻿<div class="widget-workout-preview-content">
     <h3>Lastest workout</h3>
-    <div>Description</div>
-    <div>Type</div>
-    <div>Length</div>
-    <div>Avg. speed</div>
-    <div>Duration {{workout.elapsedMinutes}}</div>
+    <div class="workout-preview-header">
+        <div class="workout-preview-header-icon">{{workout.raceTypeId}}</div>
+        <div class="workout-preview-header-title">{{workout.name}}</div>
+    </div>
+    <div class="workout-preview-details">
+        <div class="workout-preview-details-item">
+            <div class="workout-preview-details-data">{{workout.length}}</div>
+            <div class="workout-preview-details-label">Length</div>
+        </div>
+        <div class="workout-preview-details-item">
+            <div class="workout-preview-details-data">{{workout.avgSpeed}}</div>
+            <div class="workout-preview-details-label">Avg. speed</div>
+        </div>
+        <div class="workout-preview-details-item">
+            <div class="workout-preview-details-ata">{{workout.elapsedHours}}:{{workout.elapsedMinutes}}</div>
+            <div class="workout-preview-details-label">Duration</div>
+        </div>
+    </div>
 </div>

@@ -43,7 +43,7 @@ app.directive('mapbox', ['workoutService',
                                 ));
                         }
 
-                        map.setView(startLocation, 14);
+                        map.setView(startLocation, 11);
                     }
                 });
             }

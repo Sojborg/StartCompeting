@@ -1,9 +1,35 @@
-﻿.widget-map-content {
-    height: 100%;
-    width: 100%;
+﻿.widget-workout-preview-content {
+    padding: 5px;
 }
 
-    .widget-map-content .widget-map {
-        height: 100%;
-        width: 100%;
+    .widget-workout-preview-content .workout-preview-header {
+        display: flex;
+        margin-bottom: 15px;
     }
+
+        .widget-workout-preview-content .workout-preview-header .workout-preview-header-icon {
+            flex: 1;
+        }
+
+        .widget-workout-preview-content .workout-preview-header .workout-preview-header-title {
+            flex: 4;
+            font-size: 24px;
+        }
+
+    .widget-workout-preview-content .workout-preview-details {
+        display: flex;
+    }
+
+        .widget-workout-preview-content .workout-preview-details .workout-preview-details-item {
+            flex: 1;
+        }
+
+            .widget-workout-preview-content .workout-preview-details .workout-preview-details-item .workout-preview-details-label {
+                font-size: 18px;
+                color: black;
+            }
+
+            .widget-workout-preview-content .workout-preview-details .workout-preview-details-item .workout-preview-details-label {
+                font-size: 12px;
+                color: gray;
+            }
