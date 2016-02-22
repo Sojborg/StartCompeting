@@ -1,4 +1,183 @@
-﻿.footer {
-    clear: both;
+﻿body {
+    background-color: #0e334c;
+    margin: 0px;
 }
 
+#wrapper {
+    margin-top: -16px;
+    width: 100%;
+}
+
+.page-wrapper {
+    display: flex;
+}
+
+.navbar {
+    width: 100%;
+    height: 45px;
+    background-color: #0e334c;
+    text-align: right;
+}
+
+    .navbar ul {
+        list-style: none;
+    }
+
+        .navbar ul li {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            margin-right: 20px;
+            border: 1px #808080;
+            width: 85px;
+            line-height: 60px;
+            text-align: center;
+        }
+
+            .navbar ul li a {
+                text-decoration: none;
+                display: block;
+                -moz-transition: 0.3s background-color;
+                -o-transition: 0.3s background-color;
+                -webkit-transition: 0.3s background-color;
+                transition: 0.3s background-color;
+                color: white;
+            }
+
+    .navbar-icon:active {
+        color: white;
+        cursor: pointer;
+        padding: 3px;
+    }
+
+    .navbar ul .active {
+        background-color: 1px solid #ffd800;
+    }
+
+.side-navbar {
+    background-color: #0e334c;
+    /*width: 5%;*/
+    height: 100%;
+    flex: 1;
+}
+
+    .side-navbar ul {
+        list-style: none;
+        margin: 0px 15px;
+        padding: 0px;
+    }
+
+    .side-navbar .side-navbar-icon {
+        color: white;
+        cursor: pointer;
+        padding: 3px;
+    }
+
+        .side-navbar .side-navbar-icon:hover {
+            color: lightskyblue;
+            background-color: white;
+            cursor: pointer;
+        }
+
+
+.main-content {
+    /*width: 95%;*/
+    flex: 18;
+    background-color: white;
+    padding: 15px;
+}
+
+    .main-content .title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.4em;
+    }
+
+    .main-content .btn {
+        background-color: #ff6a00;
+        width: 80px;
+        height: 30px;
+        border: 1px solid #808080;
+        color: white;
+    }
+
+        .main-content .btn:hover {
+            cursor: pointer;
+        }
+
+    .main-content .form-group {
+        margin-bottom: 15px;
+    }
+
+        .main-content .form-group label {
+            font-weight: bold;
+            display: block;
+        }
+
+    .main-content .form-control {
+        display: block;
+        width: 100%;
+        height: 20px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+        -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+
+    .main-content .form-control-number-field {
+        width: 50px;
+    }
+
+    .main-content .form-control-select {
+        width: 300px;
+        height: 35px;
+    }
+
+    .main-content .form-control:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+
+    .main-content .form-control::-moz-placeholder {
+        color: #999;
+        opacity: 1;
+    }
+
+    .main-content .form-control:-ms-input-placeholder {
+        color: #999;
+    }
+
+    .main-content .form-control::-webkit-input-placeholder {
+        color: #999;
+    }
+
+    .main-content .table {
+        width: 100%;
+    }
+
+    .main-content .table-striped thead tr {
+        background-color: #ff6a00;
+        height: 20px;
+        color: white;
+        text-align: left;
+    }
+
+    .main-content .table-striped tbody tr:nth-child(odd) {
+        background-color: #f4f2f2;
+    }
+
+/*# sourceMappingURL=site1.css.map */
+
+.footer {
+    clear: both;
+    color: white;
+}
