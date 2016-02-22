@@ -4,7 +4,8 @@
     "angular-loading-bar",
     "ngAnimate",
     "ngMaterial",
-    "dashboard"
+    "dashboard",
+    "uiGmapgoogle-maps"
 ]);
 
 app.config([
