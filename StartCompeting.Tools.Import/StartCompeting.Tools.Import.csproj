@@ -56,6 +56,9 @@
     <None Include="activity.gpx" />
     <None Include="App.config" />
     <None Include="bin\Debug\activity.gpx" />
+    <None Include="bin\Debug\activity1.gpx" />
+    <None Include="bin\Debug\activity2.gpx" />
+    <None Include="bin\Debug\activity3.gpx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
